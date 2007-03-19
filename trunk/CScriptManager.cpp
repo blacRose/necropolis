@@ -30,12 +30,14 @@ namespace necropolis{
     // Look at the implementation for this function for more information
     // on how to register a custom string type, and other object types.
     // The implementation is in "/add_on/scriptstring/scriptstring.cpp"
-    RegisterScriptString(engine);
+
+/*    RegisterScriptString(engine);
 
     // Register the functions that the scripts will be allowed to use
     r = engine->RegisterGlobalFunction("void Print(string &in)", asFUNCTION(PrintString), asCALL_CDECL); assert( r >= 0 );
     r = engine->RegisterGlobalFunction("void Print(int)", asFUNCTION(PrintNumber), asCALL_CDECL); assert( r >= 0 );
     r = engine->RegisterGlobalFunction("void Sleep(uint)", asFUNCTION(ScriptSleep), asCALL_CDECL); assert( r >= 0 );
+*/
 
   };
 }
