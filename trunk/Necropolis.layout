@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_layout_file>
+	<ActiveTarget name="Debug" />
+	<File name="CGlobal.cpp" open="0" top="0" tabpos="5">
+		<Cursor position="0" topLine="0" />
+	</File>
+	<File name="CGlobal.h" open="0" top="0" tabpos="4">
+		<Cursor position="0" topLine="0" />
+	</File>
+	<File name="CLog.cpp" open="0" top="0" tabpos="2">
+		<Cursor position="0" topLine="42" />
+	</File>
+	<File name="CLog.h" open="0" top="0" tabpos="3">
+		<Cursor position="0" topLine="0" />
+	</File>
+	<File name="CObject.cpp" open="0" top="0" tabpos="5">
+		<Cursor position="24" topLine="0" />
+	</File>
+	<File name="CObject.h" open="0" top="0" tabpos="2">
+		<Cursor position="423" topLine="0" />
+	</File>
+	<File name="CObjectCollector.cpp" open="0" top="0" tabpos="4">
+		<Cursor position="233" topLine="0" />
+	</File>
+	<File name="CObjectCollector.h" open="0" top="0" tabpos="3">
+		<Cursor position="0" topLine="5" />
+	</File>
+	<File name="CScriptManager.cpp" open="1" top="0" tabpos="2">
+		<Cursor position="42" topLine="9" />
+	</File>
+	<File name="CScriptManager.h" open="1" top="1" tabpos="1">
+		<Cursor position="652" topLine="21" />
+	</File>
+	<File name="base_instance.h" open="0" top="0" tabpos="0">
+		<Cursor position="235" topLine="0" />
+	</File>
+	<File name="main.cpp" open="0" top="0" tabpos="1">
+		<Cursor position="220" topLine="0" />
+	</File>
+</CodeBlocks_layout_file>
