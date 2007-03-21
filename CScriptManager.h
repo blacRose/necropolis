@@ -20,21 +20,25 @@ struct SContextInfo;
 namespace necropolis{
   ///Callback for AngelScript Warnings, Errors, and Info
   void MessageCallback(const asSMessageInfo *msg, void *param);
+  ///Built-in Functions
+  void as_PrintString(std::string &str);
+  void as_PrintNumber(int num);
 
   class CScriptManager{
   private:
-    asIScriptEngine *engine;
+    static asIScriptEngine *engine;
     static CScriptManager* _instance;
   public:
     CScriptManager();
     ~CScriptManager();
     static CScriptManager* getInstance();
-    void AddContext(int funcID);
-    void ExecuteScripts();
-    void SetSleeping(asIScriptContext *ctx, UINT milliSeconds);
-    void AbortAll();
-
-    std::vector<SContextInfo> contexts;
+    static void AddContext(int funcID);
+    static void ExecuteScripts();
+    static void SetSleeping(asIScriptContext *ctx, UINT milliSeconds);
+    static void AbortAll();
+    static int CompileScript(std::string &str, std::string &module, std::string &scriptname);
+    static std::vector<SContextInfo>::iterator iter;
+    static std::vector<SContextInfo> contexts;
   };
 }
 ///The following classes are used for concurrent script
