@@ -243,7 +243,7 @@
 1174259233 source:f:\necropolis\cobject.cpp
 	"CObject.h"
 
-1174259282 f:\necropolis\cobject.h
+1174451249 f:\necropolis\cobject.h
 
 1174262982 source:f:\necropolis\cobjectcollector.cpp
 	"CObjectCollector.h"
@@ -252,9 +252,12 @@
 	"CObject.h"
 	<vector>
 
-1174263595 source:f:\necropolis\main.cpp
+1174432006 source:f:\necropolis\main.cpp
 	<cstdlib>
 	<stdlib.h>
+	<fstream>
+	<string>
+	<iterator>
 	<SDL.h>
 	"CLog.h"
 	"CGlobal.h"
@@ -264,7 +267,7 @@
 
 1174245337 f:\necropolis\cglobal.h
 
-1174267257 f:\necropolis\cscriptmanager.h
+1174425792 f:\necropolis\cscriptmanager.h
 	"CLog.h"
 	<iostream>
 	<assert.h>
@@ -276,4 +279,14 @@
 
 1174245363 source:f:\necropolis\cglobal.cpp
 	"CGlobal.h"
+
+1174451205 source:f:\necropolis\cscriptmanager.cpp
+	"CScriptManager.h"
+	"CObject.h"
+	"scriptstring/scriptstring.h"
+
+1166642106 source:f:\sdk\angelscript\2.8.0a\add_on\scriptstring\scriptstring.cpp
+	<assert.h>
+	<sstream>
+	"scriptstring.h"
 

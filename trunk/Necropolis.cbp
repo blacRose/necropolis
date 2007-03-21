@@ -12,8 +12,13 @@
 				<Option type="0" />
 				<Option compiler="gcc" />
 				<Compiler>
-					<Add option="-g" />
+					<Add option="-fexpensive-optimizations" />
+					<Add option="-O3" />
+					<Add option="-pg" />
 				</Compiler>
+				<Linker>
+					<Add option="-pg -lgmon" />
+				</Linker>
 			</Target>
 			<Target title="Release">
 				<Option output="bin\Release\Necropolis.exe" prefix_auto="1" extension_auto="1" />
@@ -58,6 +63,11 @@
 		<Unit filename="base_instance.h" />
 		<Unit filename="cb.bmp" />
 		<Unit filename="main.cpp" />
+		<Unit filename="script1.as" />
+		<Unit filename="script2.as" />
+		<Unit filename="..\SDK\AngelScript\2.8.0a\add_on\scriptstring\scriptstring.cpp" />
+		<Unit filename="..\SDK\AngelScript\2.8.0a\add_on\scriptstring\scriptstring.h" />
+		<Unit filename="..\SDK\AngelScript\2.8.0a\angelscript\include\angelscript.h" />
 		<Extensions>
 			<code_completion />
 		</Extensions>

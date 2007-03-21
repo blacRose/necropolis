@@ -3,6 +3,9 @@
 #else
     #include <stdlib.h>
 #endif
+#include <fstream>
+#include <string>
+#include <iterator>
 #include <SDL.h>
 #include "CLog.h"
 #include "CGlobal.h"
@@ -13,9 +16,22 @@
 necropolis::CLog* gLog;
 necropolis::CGlobal* gGlobal;
 necropolis::CObjectCollector* gObjCollector;
+necropolis::CScriptManager* gScriptManager;
 
 int main ( int argc, char** argv )
 {
+  // This script prints a message 3 times per second
+    std::ifstream s_in1("script1.as");
+    std::ifstream s_in2("script2.as");
+    if (!s_in1)return false;
+    if (!s_in2)return false;
+    std::string script1 = std::string(std::istreambuf_iterator<char>(s_in1),
+                                         std::istreambuf_iterator<char>());
+    std::string script2 = std::string(std::istreambuf_iterator<char>(s_in2),
+                                         std::istreambuf_iterator<char>());
+    s_in1.close();
+    s_in2.close();
+
     // initialize SDL video
     if ( SDL_Init( SDL_INIT_VIDEO ) < 0 )
     {
@@ -25,6 +41,11 @@ int main ( int argc, char** argv )
     gGlobal = necropolis::CGlobal::getInstance();
     gLog = necropolis::CLog::getInstance();
     gLog->dbgOut( "global", "main", "Hello World");
+    gScriptManager = necropolis::CScriptManager::getInstance();
+    std::string script1name = "script1";
+    std::string script2name = "script2";
+    gScriptManager->CompileScript(script1, script1name, script1name);
+    gScriptManager->CompileScript(script2, script2name, script2name);
     int obj = gObjCollector->NewObject(necropolis::CObject(0,0));
     // make sure SDL cleans up before exit
     atexit(SDL_Quit);
@@ -55,6 +76,7 @@ int main ( int argc, char** argv )
     bool done = false;
     while (!done)
     {
+        gScriptManager->ExecuteScripts();
         // message processing loop
         SDL_Event event;
         while (SDL_PollEvent(&event))

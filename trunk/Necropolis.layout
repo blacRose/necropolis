@@ -1,4 +1,31 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
 <CodeBlocks_layout_file>
 	<ActiveTarget name="Debug" />
+	<File name="CObject.h" open="0" top="0" tabpos="0">
+		<Cursor position="589" topLine="3" />
+	</File>
+	<File name="CObjectCollector.cpp" open="0" top="0" tabpos="0">
+		<Cursor position="131" topLine="0" />
+	</File>
+	<File name="CScriptManager.cpp" open="1" top="1" tabpos="2">
+		<Cursor position="6423" topLine="178" />
+	</File>
+	<File name="CScriptManager.h" open="0" top="0" tabpos="3">
+		<Cursor position="1122" topLine="21" />
+	</File>
+	<File name="main.cpp" open="1" top="0" tabpos="1">
+		<Cursor position="1044" topLine="32" />
+	</File>
+	<File name="script1.as" open="1" top="0" tabpos="3">
+		<Cursor position="42" topLine="0" />
+	</File>
+	<File name="script2.as" open="0" top="0" tabpos="5">
+		<Cursor position="52" topLine="0" />
+	</File>
+	<File name="..\SDK\AngelScript\2.8.0a\add_on\scriptstring\scriptstring.cpp" open="0" top="0" tabpos="0">
+		<Cursor position="1099" topLine="75" />
+	</File>
+	<File name="..\SDK\AngelScript\2.8.0a\angelscript\include\angelscript.h" open="0" top="0" tabpos="0">
+		<Cursor position="25692" topLine="522" />
+	</File>
 </CodeBlocks_layout_file>
