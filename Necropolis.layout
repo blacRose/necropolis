@@ -1,31 +1,46 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
 <CodeBlocks_layout_file>
-	<ActiveTarget name="Debug" />
-	<File name="CObject.h" open="0" top="0" tabpos="0">
-		<Cursor position="589" topLine="3" />
+	<ActiveTarget name="Release" />
+	<File name="CLog.cpp" open="0" top="0" tabpos="0">
+		<Cursor position="1566" topLine="30" />
+	</File>
+	<File name="CLog.h" open="0" top="0" tabpos="0">
+		<Cursor position="73" topLine="0" />
+	</File>
+	<File name="CObject.h" open="0" top="0" tabpos="4">
+		<Cursor position="407" topLine="15" />
 	</File>
 	<File name="CObjectCollector.cpp" open="0" top="0" tabpos="0">
-		<Cursor position="131" topLine="0" />
+		<Cursor position="0" topLine="12" />
 	</File>
-	<File name="CScriptManager.cpp" open="1" top="1" tabpos="2">
-		<Cursor position="6423" topLine="178" />
+	<File name="CObjectCollector.h" open="0" top="0" tabpos="0">
+		<Cursor position="559" topLine="7" />
 	</File>
-	<File name="CScriptManager.h" open="0" top="0" tabpos="3">
-		<Cursor position="1122" topLine="21" />
+	<File name="CScriptManager.cpp" open="1" top="0" tabpos="2">
+		<Cursor position="5390" topLine="143" />
 	</File>
-	<File name="main.cpp" open="1" top="0" tabpos="1">
-		<Cursor position="1044" topLine="32" />
+	<File name="CScriptManager.h" open="1" top="0" tabpos="3">
+		<Cursor position="814" topLine="20" />
 	</File>
-	<File name="script1.as" open="1" top="0" tabpos="3">
-		<Cursor position="42" topLine="0" />
+	<File name="CTextureManager.cpp" open="1" top="0" tabpos="5">
+		<Cursor position="1121" topLine="20" />
 	</File>
-	<File name="script2.as" open="0" top="0" tabpos="5">
-		<Cursor position="52" topLine="0" />
+	<File name="CTextureManager.h" open="0" top="0" tabpos="0">
+		<Cursor position="652" topLine="3" />
 	</File>
-	<File name="..\SDK\AngelScript\2.8.0a\add_on\scriptstring\scriptstring.cpp" open="0" top="0" tabpos="0">
-		<Cursor position="1099" topLine="75" />
+	<File name="asScriptFunctions.cpp" open="1" top="0" tabpos="4">
+		<Cursor position="1915" topLine="13" />
 	</File>
-	<File name="..\SDK\AngelScript\2.8.0a\angelscript\include\angelscript.h" open="0" top="0" tabpos="0">
-		<Cursor position="25692" topLine="522" />
+	<File name="asScriptFunctions.h" open="0" top="0" tabpos="3">
+		<Cursor position="331" topLine="0" />
+	</File>
+	<File name="main.cpp" open="1" top="1" tabpos="7">
+		<Cursor position="1085" topLine="25" />
+	</File>
+	<File name="script1.as" open="1" top="0" tabpos="1">
+		<Cursor position="447" topLine="0" />
+	</File>
+	<File name="script2.as" open="1" top="0" tabpos="6">
+		<Cursor position="20" topLine="0" />
 	</File>
 </CodeBlocks_layout_file>

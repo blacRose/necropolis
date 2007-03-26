@@ -7,28 +7,38 @@
 #include <string>
 #include <iterator>
 #include <SDL.h>
+#include <SGE.h>
 #include "CLog.h"
 #include "CGlobal.h"
 #include "CObjectCollector.h"
 #include "CObject.h"
 #include "CScriptManager.h"
+#include "CTextureManager.h"
 
+std::vector<SDL_Surface*> mTextureList;
 necropolis::CLog* gLog;
 necropolis::CGlobal* gGlobal;
 necropolis::CObjectCollector* gObjCollector;
+necropolis::CTextureManager* gTexMan = necropolis::CTextureManager::getInstance();
 necropolis::CScriptManager* gScriptManager;
 
 int main ( int argc, char** argv )
 {
+    std::ifstream s_in1("script1.as");
+    std::string script1 = std::string(std::istreambuf_iterator<char>(s_in1),
+                                      std::istreambuf_iterator<char>());
+    s_in1.close();
+
+    mTextureList.reserve(32);
   // This script prints a message 3 times per second
     std::ifstream s_in1("script1.as");
     std::ifstream s_in2("script2.as");
     if (!s_in1)return false;
     if (!s_in2)return false;
     std::string script1 = std::string(std::istreambuf_iterator<char>(s_in1),
-                                         std::istreambuf_iterator<char>());
+                                      std::istreambuf_iterator<char>());
     std::string script2 = std::string(std::istreambuf_iterator<char>(s_in2),
-                                         std::istreambuf_iterator<char>());
+                                      std::istreambuf_iterator<char>());
     s_in1.close();
     s_in2.close();
 
@@ -46,31 +56,18 @@ int main ( int argc, char** argv )
     std::string script2name = "script2";
     gScriptManager->CompileScript(script1, script1name, script1name);
     gScriptManager->CompileScript(script2, script2name, script2name);
-    int obj = gObjCollector->NewObject(necropolis::CObject(0,0));
+    int obj = gObjCollector->NewObject(necropolis::CObject());
     // make sure SDL cleans up before exit
     atexit(SDL_Quit);
 
     // create a new window
-    SDL_Surface* screen = SDL_SetVideoMode(640, 480, 16,
-                                           SDL_HWSURFACE|SDL_DOUBLEBUF);
+    SDL_Surface* screen = SDL_SetVideoMode(640, 480, 24,
+                                           SDL_SWSURFACE|SDL_DOUBLEBUF);
     if ( !screen )
     {
         printf("Unable to set 640x480 video: %s\n", SDL_GetError());
         return 1;
     }
-
-    // load an image
-    SDL_Surface* bmp = SDL_LoadBMP("cb.bmp");
-    if (!bmp)
-    {
-        printf("Unable to load bitmap: %s\n", SDL_GetError());
-        return 1;
-    }
-
-    // centre the bitmap on screen
-    SDL_Rect dstrect;
-    dstrect.x = (screen->w - bmp->w) / 2;
-    dstrect.y = (screen->h - bmp->h) / 2;
 
     // program main loop
     bool done = false;
@@ -104,18 +101,15 @@ int main ( int argc, char** argv )
 
         // clear screen
         SDL_FillRect(screen, 0, SDL_MapRGB(screen->format, 0, 0, 0));
-
-        // draw bitmap
-        SDL_BlitSurface(bmp, 0, screen, &dstrect);
-
-        // DRAWING ENDS HERE
-
+        //Draw All objects
+        std::vector<necropolis::CObject*>::iterator it = necropolis::CObjectCollector::mObjectList.begin();
+        for(;it != necropolis::CObjectCollector::mObjectList.end(); it++)
+        {
+          gTexMan->DrawTexture((*it)->_surface,(*it)->physics.x,(*it)->physics.y,screen);
+        }
         // finally, update the screen :)
         SDL_Flip(screen);
     } // end main loop
-
-    // free loaded bitmap
-    SDL_FreeSurface(bmp);
 
     // all is well ;)
     printf("Exited cleanly\n");

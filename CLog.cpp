@@ -40,9 +40,9 @@ namespace necropolis{
   ///Print a message to the debug console.
   int CLog::dbgOut(char* cls, char* func, char* fmt,...){
 			int retval=0;
-#ifdef DEBUG_TRACE
       ///create va_list and load all arguments
-			va_list ap;
+#ifdef DEBUG_TRACE
+      va_list ap;
 			va_start(ap, fmt);
 			printf("  ");
 			if(cls!=NULL)
