@@ -14,11 +14,8 @@
 				<Compiler>
 					<Add option="-fexpensive-optimizations" />
 					<Add option="-O3" />
-					<Add option="-pg" />
+					<Add option="-g" />
 				</Compiler>
-				<Linker>
-					<Add option="-pg -lgmon" />
-				</Linker>
 			</Target>
 			<Target title="Release">
 				<Option output="bin\Release\Necropolis.exe" prefix_auto="1" extension_auto="1" />
@@ -34,10 +31,13 @@
 			</Target>
 		</Build>
 		<Compiler>
-			<Add option="-Wall" />
-			<Add directory="F:\SDK\SDL\SDL-1.2.11\include" />
-			<Add directory="F:\SDK\AngelScript\2.8.0a\angelscript\include" />
-			<Add directory="F:\SDK\AngelScript\2.8.0a\add_on" />
+			<Add option="-W" />
+			<Add directory="C:\SDK\SDL\SDL-1.2.11\include" />
+			<Add directory="C:\SDK\AngelScript\2.8.0a\angelscript\include" />
+			<Add directory="C:\SDK\AngelScript\2.8.0a\add_on" />
+			<Add directory="C:\SDK\SDL\sge030809-w32" />
+			<Add directory="C:\SDK\SDL\sge030809-w32\src" />
+			<Add directory="C:\SDK\SDL\SDL_image-1.2.5\include" />
 		</Compiler>
 		<Linker>
 			<Add library="mingw32" />
@@ -47,8 +47,11 @@
 			<Add library="gdi32" />
 			<Add library="winmm" />
 			<Add library="dxguid" />
-			<Add library="F:\SDK\AngelScript\2.8.0a\angelscript\lib\libangelscript.a" />
-			<Add directory="F:\SDK\SDL\SDL-1.2.11\lib" />
+			<Add library="C:\SDK\AngelScript\2.8.0a\angelscript\lib\libangelscript.a" />
+			<Add library="C:\SDK\SDL\sge030809-w32\libSGE.a" />
+			<Add library="SDL_Image" />
+			<Add directory="C:\SDK\SDL\SDL-1.2.11\lib" />
+			<Add directory="C:\SDK\SDL\SDL_image-1.2.5\lib" />
 		</Linker>
 		<Unit filename="CGlobal.cpp" />
 		<Unit filename="CGlobal.h" />
@@ -60,6 +63,10 @@
 		<Unit filename="CObjectCollector.h" />
 		<Unit filename="CScriptManager.cpp" />
 		<Unit filename="CScriptManager.h" />
+		<Unit filename="CTextureManager.cpp" />
+		<Unit filename="CTextureManager.h" />
+		<Unit filename="asScriptFunctions.cpp" />
+		<Unit filename="asScriptFunctions.h" />
 		<Unit filename="base_instance.h" />
 		<Unit filename="cb.bmp" />
 		<Unit filename="main.cpp" />

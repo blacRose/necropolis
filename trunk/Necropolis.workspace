@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
 <CodeBlocks_workspace_file>
 	<Workspace title="msvc7 workspace">
-		<Project filename="F:\SDK\AngelScript\2.8.0a\samples\concurrent\projects\msvc7\msvc7.cbp" />
+		<Project filename="..\SDK\AngelScript\2.8.0a\samples\concurrent\projects\msvc7\msvc7.cbp" />
+		<Project filename="..\SDK\AngelScript\2.8.0a\samples\events\projects\msvc7\msvc7.cbp" />
 		<Project filename="Necropolis.cbp" active="1" />
 	</Workspace>
 </CodeBlocks_workspace_file>

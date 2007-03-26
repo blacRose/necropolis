@@ -1,14 +1,14 @@
 #ifndef CSCRIPTMANAGER_H
 #define CSCRIPTMANAGER_H
 #include "CLog.h"
-#include <iostream>  // cout
-#include <assert.h>  // assert()
+#include <iostream>  /// cout
+#include <assert.h>  /// assert()
 #include <vector>
 #include <angelscript.h>
 #include "scriptstring/scriptstring.h"
 
-#include <conio.h>   // kbhit(), getch()
-#include <windows.h> // timeGetTime()
+#include <conio.h>   /// kbhit(), getch()
+#include <windows.h> /// timeGetTime()
 ///I add this into most headers because I was getting an
 ///error I have never gotten about NULL not being defined
 #ifndef NULL
@@ -20,15 +20,13 @@ struct SContextInfo;
 namespace necropolis{
   ///Callback for AngelScript Warnings, Errors, and Info
   void MessageCallback(const asSMessageInfo *msg, void *param);
-  ///Built-in Functions
-  void as_PrintString(std::string &str);
-  void as_PrintNumber(int num);
 
   class CScriptManager{
   private:
     static asIScriptEngine *engine;
     static CScriptManager* _instance;
   public:
+    static int iKeyArray[256];
     CScriptManager();
     ~CScriptManager();
     static CScriptManager* getInstance();

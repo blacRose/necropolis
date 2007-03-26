@@ -13,9 +13,9 @@ typedef unsigned int objectRef;
 namespace necropolis{
   class CObjectCollector{
   private:
-    static CObjectCollector* _instance;
-    static std::vector<CObject> mObjectList;
   public:
+    static CObjectCollector* _instance;
+    static std::vector<CObject*> mObjectList;
     CObjectCollector();
     ~CObjectCollector();
     static CObjectCollector* getInstance();

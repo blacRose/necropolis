@@ -2,7 +2,7 @@
 namespace necropolis{
   ///Set instance to NULL so that there is no problem with the singleton.
   CObjectCollector* CObjectCollector::_instance = NULL;
-
+  std::vector<CObject*> CObjectCollector::mObjectList;
   CObjectCollector::CObjectCollector(){
   };
 
@@ -19,9 +19,22 @@ namespace necropolis{
       return _instance;
     }
   }
-  objectRef CObjectCollector::NewObject(CObject* a_objectPtr){return true;};
-  objectRef CObjectCollector::NewObject(CObject& a_objectPtr){return true;};
-  objectRef CObjectCollector::NewObject(CObject a_objectPtr){return true;};
+  objectRef CObjectCollector::NewObject(CObject* a_objectPtr)
+  {
+    mObjectList.push_back(a_objectPtr);
+
+    return true;
+  };
+  objectRef CObjectCollector::NewObject(CObject& a_objectPtr)
+  {
+    mObjectList.push_back(&a_objectPtr);
+    return true;
+  };
+  objectRef CObjectCollector::NewObject(CObject a_objectPtr)
+  {
+    mObjectList.push_back(&a_objectPtr);
+    return true;
+  };
   void CObjectCollector::FreeObject(objectRef a_objectRef){};
 }
 
