@@ -7,8 +7,12 @@
 #include <angelscript.h>
 #include "scriptstring/scriptstring.h"
 
+#ifndef __LINUX__
 #include <conio.h>   /// kbhit(), getch()
-#include <windows.h> /// timeGetTime()
+  #include <windows.h> /// timeGetTime()
+#else
+  typedef unsigned int UINT;
+#endif
 ///I add this into most headers because I was getting an
 ///error I have never gotten about NULL not being defined
 #ifndef NULL

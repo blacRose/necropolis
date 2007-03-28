@@ -7,7 +7,7 @@
 #include <string>
 #include <iterator>
 #include <SDL.h>
-#include <SGE.h>
+#include <sge.h>
 #include "CLog.h"
 #include "CGlobal.h"
 #include "CObjectCollector.h"
@@ -24,10 +24,6 @@ necropolis::CScriptManager* gScriptManager;
 
 int main ( int argc, char** argv )
 {
-    std::ifstream s_in1("script1.as");
-    std::string script1 = std::string(std::istreambuf_iterator<char>(s_in1),
-                                      std::istreambuf_iterator<char>());
-    s_in1.close();
 
     mTextureList.reserve(32);
   // This script prints a message 3 times per second

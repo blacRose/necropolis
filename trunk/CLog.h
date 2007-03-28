@@ -1,7 +1,11 @@
 #ifndef CLOG_H
 #define CLOG_H
-#include <windows.h>
-#define DEBUG_TRACE
+#ifndef __LINUX__
+  #define DEBUG_TRACE
+#endif
+#ifdef DEBUG_TRACE
+  #include <windows.h>
+#endif
 #ifndef NULL
   #define NULL 0
 #endif
