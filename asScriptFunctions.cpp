@@ -12,6 +12,11 @@ namespace necropolis{
     CLog::dbgOut("AngelScript","Game","%i", num);
   }
 
+  void as_WindowSetTitle(std::string name)
+  {
+    SDL_WM_SetCaption(name.c_str(),NULL);
+  }
+
   void as_ScriptSleep(UINT milliSeconds)
   {
     /// Get a pointer to the context that s currently being executed

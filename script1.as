@@ -1,6 +1,8 @@
 
 void main()
 {
+  WindowSetTitle("Necropolis Cross-Platform Build");
+  Sleep(30);
   object A = _object(32,49);
   Print(GetObjectX(A));
   Print(GetObjectY(A));

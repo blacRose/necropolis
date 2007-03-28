@@ -161,6 +161,7 @@ namespace necropolis{
   ///them by category.
   void RegisterGlobalFunctions(asIScriptEngine *engine)
   {
+    engine->RegisterGlobalFunction("void    WindowSetTitle  (string &in)", asFUNCTION(as_WindowSetTitle), asCALL_CDECL);
     engine->RegisterGlobalFunction("void    Print           (string &in)", asFUNCTION(as_PrintString), asCALL_CDECL);
     engine->RegisterGlobalFunction("void    Print           (int)", asFUNCTION(as_PrintNumber), asCALL_CDECL);
     engine->RegisterGlobalFunction("void    Sleep           (uint)", asFUNCTION(as_ScriptSleep), asCALL_CDECL);

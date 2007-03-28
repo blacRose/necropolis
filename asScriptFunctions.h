@@ -9,6 +9,7 @@ namespace necropolis{
   void as_PrintString(std::string &str);
   void as_PrintNumber(int num);
   void as_ScriptSleep(unsigned int milliSeconds);
+  void as_WindowSetTitle(std::string name);
   bool as_GetKeyPressed(int key);
   ///Typedefinitions:
   /** Type: object
