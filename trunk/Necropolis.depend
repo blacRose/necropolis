@@ -843,7 +843,7 @@
 	"CObject.h"
 	<vector>
 
-1175038458 source:/home/Development/Necropolis/CScriptManager.cpp
+1175109659 source:/home/Development/Necropolis/CScriptManager.cpp
 	"CScriptManager.h"
 	"asScriptFunctions.h"
 	"CObject.h"
@@ -867,7 +867,7 @@
 	<angelscript.h>
 	<string>
 
-1174837225 /home/Development/Necropolis/asScriptFunctions.h
+1175109604 /home/Development/Necropolis/asScriptFunctions.h
 	<string>
 	"CLog.h"
 	"CObjectCollector.h"
