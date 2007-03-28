@@ -1,7 +1,9 @@
 #include "CLog.h"
 #include <stdio.h>
 #include <stdarg.h>
-#include <windows.h>
+#ifdef DEBUG_TRACE
+  #include <windows.h>
+#endif
 namespace necropolis{
   ///Set instance to NULL so that there is no problem with the singleton.
   CLog* CLog::_instance = NULL;

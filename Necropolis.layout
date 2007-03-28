@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
 <CodeBlocks_layout_file>
-	<ActiveTarget name="Release" />
-	<File name="CLog.cpp" open="0" top="0" tabpos="0">
-		<Cursor position="1566" topLine="30" />
+	<ActiveTarget name="Linux(debug)" />
+	<File name="CLog.cpp" open="1" top="0" tabpos="8">
+		<Cursor position="81" topLine="0" />
 	</File>
-	<File name="CLog.h" open="0" top="0" tabpos="0">
-		<Cursor position="73" topLine="0" />
+	<File name="CLog.h" open="1" top="0" tabpos="7">
+		<Cursor position="97" topLine="0" />
 	</File>
 	<File name="CObject.h" open="0" top="0" tabpos="4">
 		<Cursor position="407" topLine="15" />
@@ -17,13 +17,13 @@
 		<Cursor position="559" topLine="7" />
 	</File>
 	<File name="CScriptManager.cpp" open="1" top="0" tabpos="2">
-		<Cursor position="5390" topLine="143" />
+		<Cursor position="4984" topLine="129" />
 	</File>
 	<File name="CScriptManager.h" open="1" top="0" tabpos="3">
-		<Cursor position="814" topLine="20" />
+		<Cursor position="358" topLine="0" />
 	</File>
 	<File name="CTextureManager.cpp" open="1" top="0" tabpos="5">
-		<Cursor position="1121" topLine="20" />
+		<Cursor position="45" topLine="0" />
 	</File>
 	<File name="CTextureManager.h" open="0" top="0" tabpos="0">
 		<Cursor position="652" topLine="3" />
@@ -34,8 +34,8 @@
 	<File name="asScriptFunctions.h" open="0" top="0" tabpos="3">
 		<Cursor position="331" topLine="0" />
 	</File>
-	<File name="main.cpp" open="1" top="1" tabpos="7">
-		<Cursor position="1085" topLine="25" />
+	<File name="main.cpp" open="1" top="1" tabpos="9">
+		<Cursor position="1394" topLine="25" />
 	</File>
 	<File name="script1.as" open="1" top="0" tabpos="1">
 		<Cursor position="447" topLine="0" />

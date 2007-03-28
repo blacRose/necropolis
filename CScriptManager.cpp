@@ -77,7 +77,7 @@ namespace necropolis{
   void CScriptManager::ExecuteScripts()
   {
     /// Check if the system time is higher than the time set for the contexts
-    UINT time = timeGetTime();
+    UINT time = SDL_GetTicks();
     for( iter = contexts.begin(); iter != contexts.end(); iter++)
     {
       if( ( iter->ctx ) && ( iter->sleepUntil < time ) )
@@ -139,7 +139,7 @@ namespace necropolis{
     {
       if( contexts[n].ctx == ctx )
       {
-        contexts[n].sleepUntil = timeGetTime() + milliSeconds;
+        contexts[n].sleepUntil = SDL_GetTicks() + milliSeconds;
       }
     }
   }

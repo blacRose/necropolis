@@ -1,5 +1,5 @@
 #include "CTextureManager.h"
-#include <SDL_Image.h>
+#include <SDL_image.h>
 namespace necropolis{
   ///Set instance to NULL so that there is no problem with the singleton.
   CTextureManager* CTextureManager::_instance = NULL;
