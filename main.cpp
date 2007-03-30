@@ -3,11 +3,8 @@
 #else
     #include <stdlib.h>
 #endif
-#include <fstream>
-#include <string>
-#include <iterator>
 #include <SDL.h>
-#include <sge.h>
+#include <SGE.h>
 #include "CLog.h"
 #include "CGlobal.h"
 #include "CObjectCollector.h"
@@ -24,20 +21,7 @@ necropolis::CScriptManager* gScriptManager;
 
 int main ( int argc, char** argv )
 {
-
     mTextureList.reserve(32);
-  // This script prints a message 3 times per second
-    std::ifstream s_in1("script1.as");
-    std::ifstream s_in2("script2.as");
-    if (!s_in1)return false;
-    if (!s_in2)return false;
-    std::string script1 = std::string(std::istreambuf_iterator<char>(s_in1),
-                                      std::istreambuf_iterator<char>());
-    std::string script2 = std::string(std::istreambuf_iterator<char>(s_in2),
-                                      std::istreambuf_iterator<char>());
-    s_in1.close();
-    s_in2.close();
-
     // initialize SDL video
     if ( SDL_Init( SDL_INIT_VIDEO ) < 0 )
     {
@@ -48,17 +32,16 @@ int main ( int argc, char** argv )
     gLog = necropolis::CLog::getInstance();
     gLog->dbgOut( "global", "main", "Hello World");
     gScriptManager = necropolis::CScriptManager::getInstance();
-    std::string script1name = "script1";
-    std::string script2name = "script2";
-    gScriptManager->CompileScript(script1, script1name, script1name);
-    gScriptManager->CompileScript(script2, script2name, script2name);
+    std::string script1name = "script1.as";
+    std::string script2name = "script2.as";
+    gScriptManager->CompileScriptFromFile(script1name,script1name,script1name);
+    gScriptManager->CompileScriptFromFile(script2name,script2name,script2name);
     int obj = gObjCollector->NewObject(necropolis::CObject());
     // make sure SDL cleans up before exit
     atexit(SDL_Quit);
 
     // create a new window
-    SDL_Surface* screen = SDL_SetVideoMode(640, 480, 24,
-                                           SDL_SWSURFACE|SDL_DOUBLEBUF);
+    SDL_Surface* screen = SDL_SetVideoMode(640, 480, 24, SDL_SWSURFACE|SDL_DOUBLEBUF);
     if ( !screen )
     {
         printf("Unable to set 640x480 video: %s\n", SDL_GetError());

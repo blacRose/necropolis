@@ -8,6 +8,9 @@
 #include "scriptstring/scriptstring.h"
 
 #ifndef __LINUX__
+#include <fstream>
+#include <string>
+#include <iterator>
 #include <conio.h>   /// kbhit(), getch()
   #include <windows.h> /// timeGetTime()
 #else
@@ -39,6 +42,7 @@ namespace necropolis{
     static void SetSleeping(asIScriptContext *ctx, UINT milliSeconds);
     static void AbortAll();
     static int CompileScript(std::string &str, std::string &module, std::string &scriptname);
+    static int CompileScriptFromFile(std::string &fname, std::string &module, std::string &scriptname);
     static std::vector<SContextInfo>::iterator iter;
     static std::vector<SContextInfo> contexts;
   };

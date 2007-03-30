@@ -209,7 +209,7 @@
 
 1174837386 >
 
-1174824066 c:\necropolis\clog.h
+1175225064 c:\necropolis\clog.h
 	<windows.h>
 
 1174245363 source:c:\necropolis\cglobal.cpp
@@ -236,13 +236,16 @@
 1174259233 source:c:\necropolis\cobject.cpp
 	"CObject.h"
 
-1174836990 c:\necropolis\cscriptmanager.h
+1175224724 c:\necropolis\cscriptmanager.h
 	"CLog.h"
 	<iostream>
 	<assert.h>
 	<vector>
 	<angelscript.h>
 	"scriptstring/scriptstring.h"
+	<fstream>
+	<string>
+	<iterator>
 	<conio.h>
 	<windows.h>
 
@@ -526,7 +529,7 @@
 1171824854 c:\sdk\angelscript\2.8.0a\angelscript\include\angelscript.h
 	<stddef.h>
 
-1174837386 source:c:\necropolis\cscriptmanager.cpp
+1175224580 source:c:\necropolis\cscriptmanager.cpp
 	"CScriptManager.h"
 	"asScriptFunctions.h"
 	"CObject.h"

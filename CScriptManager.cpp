@@ -74,6 +74,29 @@ namespace necropolis{
     AddContext(engine->GetFunctionIDByDecl(scriptname.c_str(), "void main()"));
     return 0;
   }
+  int CScriptManager::CompileScriptFromFile(std::string &fname, std::string &module, std::string &scriptname)
+  {
+    std::ifstream s_in1(fname.c_str());
+    std::string str = std::string(std::istreambuf_iterator<char>(s_in1),
+                                      std::istreambuf_iterator<char>());
+    s_in1.close();
+    /// Build the two script into separate modules. This will make them have
+    /// separate namespaces, which allows them to use the same name for functions
+    /// and global variables.
+    int r = engine->AddScriptSection(module.c_str(), scriptname.c_str(), str.c_str(), str.length(), 0, false);
+    if( r < 0 ){
+      CLog::dbgOut("Script Manager","CompileScript","%s", "AddScriptSection() failed.");
+      return -1;
+    }
+
+    r = engine->Build(scriptname.c_str());
+    if( r < 0 ){
+      CLog::dbgOut("Script Manager","CompileScript","%s", "Build() failed.");
+      return -1;
+    }
+    AddContext(engine->GetFunctionIDByDecl(scriptname.c_str(), "void main()"));
+    return 0;
+  }
   void CScriptManager::ExecuteScripts()
   {
     /// Check if the system time is higher than the time set for the contexts
