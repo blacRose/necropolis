@@ -1,46 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
 <CodeBlocks_layout_file>
-	<ActiveTarget name="Linux(debug)" />
-	<File name="CLog.cpp" open="1" top="0" tabpos="8">
-		<Cursor position="81" topLine="0" />
-	</File>
-	<File name="CLog.h" open="1" top="0" tabpos="7">
-		<Cursor position="97" topLine="0" />
-	</File>
-	<File name="CObject.h" open="0" top="0" tabpos="4">
-		<Cursor position="407" topLine="15" />
-	</File>
-	<File name="CObjectCollector.cpp" open="0" top="0" tabpos="0">
-		<Cursor position="0" topLine="12" />
-	</File>
-	<File name="CObjectCollector.h" open="0" top="0" tabpos="0">
-		<Cursor position="559" topLine="7" />
-	</File>
-	<File name="CScriptManager.cpp" open="1" top="0" tabpos="2">
-		<Cursor position="4984" topLine="129" />
-	</File>
-	<File name="CScriptManager.h" open="1" top="0" tabpos="3">
-		<Cursor position="358" topLine="0" />
-	</File>
-	<File name="CTextureManager.cpp" open="1" top="0" tabpos="5">
-		<Cursor position="45" topLine="0" />
-	</File>
-	<File name="CTextureManager.h" open="0" top="0" tabpos="0">
-		<Cursor position="652" topLine="3" />
-	</File>
-	<File name="asScriptFunctions.cpp" open="1" top="0" tabpos="4">
-		<Cursor position="1915" topLine="13" />
-	</File>
-	<File name="asScriptFunctions.h" open="0" top="0" tabpos="3">
-		<Cursor position="331" topLine="0" />
-	</File>
-	<File name="main.cpp" open="1" top="1" tabpos="9">
-		<Cursor position="1394" topLine="25" />
-	</File>
-	<File name="script1.as" open="1" top="0" tabpos="1">
-		<Cursor position="447" topLine="0" />
-	</File>
-	<File name="script2.as" open="1" top="0" tabpos="6">
-		<Cursor position="20" topLine="0" />
+	<ActiveTarget name="Debug" />
+	<File name="main.cpp" open="1" top="1" tabpos="1">
+		<Cursor position="0" topLine="9" />
 	</File>
 </CodeBlocks_layout_file>
