@@ -1,9 +1,7 @@
 
 void main()
 {
-  object A = _object(0,320);
-  Print(GetObjectX(A));
-  Print(GetObjectY(A));
+  object_t A = _object(0,320);
   int x=GetObjectX(A);
   int y=GetObjectY(A);
   SetObjectTag(A, "Monster");

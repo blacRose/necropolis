@@ -1,36 +1,29 @@
 #include "CTextureManager.h"
 #include <SDL_image.h>
 namespace necropolis{
-  ///Set instance to NULL so that there is no problem with the singleton.
-  CTextureManager* CTextureManager::_instance = NULL;
   unsigned int CTextureManager::iTexPos = 1;
-  CTextureManager::CTextureManager(){
-  };
 
-  ///getInstance returns the instance of the singleton, creating it if not already done.
-  CTextureManager* CTextureManager::getInstance(){
-    ///is there an instance already?
-    if(_instance==NULL){
-      ///if not, create it and return it.
-      _instance = new CTextureManager();
-      return _instance;
-    }
-    ///if there is, just return it.
-    else{
-      return _instance;
-    }
-  }
   unsigned int CTextureManager::LoadTexture(std::string fname)
   {
-    mTextureList[iTexPos] = IMG_Load(fname.c_str());
     if(iTexPos%31 == 0)
       mTextureList.resize(mTextureList.size()+32);
+    mTextureList[iTexPos] = IMG_Load(fname.c_str());
     if(!mTextureList[iTexPos])
     {
       return 0;
     }else{
       return iTexPos++;
     }
+  }
+  bool CTextureManager::FreeTexture(unsigned int texid)
+  {
+  	if((texid<1)||(texid>iTexPos))
+  	{
+  		SDL_FreeSurface(mTextureList.at(texid));
+  		//std::vector<SDL_Surface*>::iterator t_iterator = mTextureList.at(texid);
+			return true;
+  	}
+  	else return false;
   }
   void CTextureManager::DrawTexture(unsigned int tID, int x, int y, SDL_Surface* screen)
   {

@@ -1,7 +1,5 @@
 #include "asScriptFunctions.h"
 namespace necropolis{
-  necropolis::CObjectCollector* gObjCollector = necropolis::CObjectCollector::getInstance();
-  necropolis::CTextureManager* gTexMan = necropolis::CTextureManager::getInstance();
   void as_PrintString(std::string &str)
   {
     CLog::dbgOut("AngelScript","Game","%s", str.c_str());
@@ -53,24 +51,11 @@ namespace necropolis{
     t_obj->physics.x = x;
     t_obj->physics.y = y;
     t_obj->_surface = 0;
-    int obj = necropolis::gObjCollector->NewObject(t_obj);
+    int obj = necropolis::CObjectCollector::NewObject(t_obj);
     return t_obj;
   }
   int as_SetObjectSprite(CObject* object, std::string fname)
   {
-    if(!object->_surface)
-    {
-      object->_surface = gTexMan->LoadTexture(fname.c_str());
-    }else{
-      object->_surface = gTexMan->LoadTexture(fname.c_str());
-    }
-
-    if(object->_surface == NULL)
-    {
-      CLog::dbgOut("AngelScript","Game","Error Loading Sprite: %s", fname.c_str());
-    }else{
-      CLog::dbgOut("AngelScript","Game","Sprite Loaded: %s", fname.c_str());
-      CLog::dbgOut("AngelScript","Game","Location: %x", &object->_surface);
-    }
+  	object->setSprite(object, fname);
   }
 }

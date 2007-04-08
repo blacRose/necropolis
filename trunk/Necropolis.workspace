@@ -3,6 +3,7 @@
 	<Workspace title="msvc7 workspace">
 		<Project filename="..\SDK\AngelScript\2.8.0a\samples\concurrent\projects\msvc7\msvc7.cbp" />
 		<Project filename="..\SDK\AngelScript\2.8.0a\samples\events\projects\msvc7\msvc7.cbp" />
-		<Project filename="Necropolis.cbp" active="1" />
+		<Project filename="Necropolis.cbp" />
+		<Project filename="..\Documents and Settings\Wynter Woods\My Documents\CodeBlocks\Projects\NexusScript\NexusScript.cbp" active="1" />
 	</Workspace>
 </CodeBlocks_workspace_file>

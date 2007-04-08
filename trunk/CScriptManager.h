@@ -6,6 +6,7 @@
 #include <vector>
 #include <angelscript.h>
 #include "scriptstring/scriptstring.h"
+#include "template_singleton.h"
 
 #ifndef __LINUX__
 #include <fstream>
@@ -23,20 +24,19 @@
 #endif
 ///Forward declaration
 struct SContextInfo;
-
 namespace necropolis{
   ///Callback for AngelScript Warnings, Errors, and Info
   void MessageCallback(const asSMessageInfo *msg, void *param);
 
-  class CScriptManager{
+  class CScriptManager : public
+					Singleton<CScriptManager>{
   private:
     static asIScriptEngine *engine;
-    static CScriptManager* _instance;
   public:
     static int iKeyArray[256];
     CScriptManager();
     ~CScriptManager();
-    static CScriptManager* getInstance();
+    static void Initialize();
     static void AddContext(int funcID);
     static void ExecuteScripts();
     static void SetSleeping(asIScriptContext *ctx, UINT milliSeconds);

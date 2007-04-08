@@ -1,96 +1,78 @@
-#ifdef __cplusplus
-    #include <cstdlib>
-#else
-    #include <stdlib.h>
-#endif
-#include <SDL.h>
-#include <SGE.h>
-#include "CLog.h"
-#include "CGlobal.h"
-#include "CObjectCollector.h"
-#include "CObject.h"
-#include "CScriptManager.h"
-#include "CTextureManager.h"
+#include "main.h"
 
+using namespace necropolis;
 std::vector<SDL_Surface*> mTextureList;
-necropolis::CLog* gLog;
-necropolis::CGlobal* gGlobal;
-necropolis::CObjectCollector* gObjCollector;
-necropolis::CTextureManager* gTexMan = necropolis::CTextureManager::getInstance();
-necropolis::CScriptManager* gScriptManager;
+necropolis::CLog* Log;
+necropolis::CGlobal* Global;
+necropolis::CVideo* Video;
+necropolis::CScriptManager* ScriptManager;
+necropolis::CObjectCollector* ObjCollector;
+necropolis::CTextureManager* TexMan;
+necropolis::CEventDirector* EvtDirector;
+template <> CLog *Singleton<CLog>::my_singleton = 0;
+template <> CGlobal *Singleton<CGlobal>::my_singleton = 0;
+template <> CVideo *Singleton<CVideo>::my_singleton = 0;
+template <> CScriptManager *Singleton<CScriptManager>::my_singleton = 0;
+template <> CObjectCollector *Singleton<CObjectCollector>::my_singleton = 0;
+template <> CTextureManager *Singleton<CTextureManager>::my_singleton = 0;
+template <> CEventDirector *Singleton<CEventDirector>::my_singleton = 0;
 
 int main ( int argc, char** argv )
 {
     mTextureList.reserve(32);
-    // initialize SDL video
-    if ( SDL_Init( SDL_INIT_VIDEO ) < 0 )
-    {
-        printf( "Unable to init SDL: %s\n", SDL_GetError() );
-        return 1;
-    }
-    gGlobal = necropolis::CGlobal::getInstance();
-    gLog = necropolis::CLog::getInstance();
-    gLog->dbgOut( "global", "main", "Hello World");
-    gScriptManager = necropolis::CScriptManager::getInstance();
+    //Setup Singleton Objects
+    Log = Singleton<necropolis::CLog>::getPtr();
+    Global = Singleton<necropolis::CGlobal>::getPtr();
+    ScriptManager = Singleton<necropolis::CScriptManager>::getPtr();
+    Video = Singleton<necropolis::CVideo>::getPtr();
+    ObjCollector = Singleton<necropolis::CObjectCollector>::getPtr();
+    TexMan = Singleton<necropolis::CTextureManager>::getPtr();
+    EvtDirector = Singleton<necropolis::CEventDirector>::getPtr();
+    //and Initialize whatever ones need to e initialized
+    Video->Initialize();
+    ScriptManager->Initialize();
+    //output a short diagnostic of the video hardware
+    Log->dbgOut( NULL, NULL, "Hello World");
+    Log->dbgOut( "global", "main", "Hello World");
+
+    //define and compile the two scripts that will run
     std::string script1name = "script1.as";
     std::string script2name = "script2.as";
-    gScriptManager->CompileScriptFromFile(script1name,script1name,script1name);
-    gScriptManager->CompileScriptFromFile(script2name,script2name,script2name);
-    int obj = gObjCollector->NewObject(necropolis::CObject());
+    ScriptManager->CompileScriptFromFile(script1name,script1name,script1name);
+    ScriptManager->CompileScriptFromFile(script2name,script2name,script2name);
+    //and create an object to test object collector
+    int obj = ObjCollector->NewObject(necropolis::CObject());
     // make sure SDL cleans up before exit
     atexit(SDL_Quit);
 
     // create a new window
-    SDL_Surface* screen = SDL_SetVideoMode(640, 480, 24, SDL_SWSURFACE|SDL_DOUBLEBUF);
-    if ( !screen )
-    {
-        printf("Unable to set 640x480 video: %s\n", SDL_GetError());
-        return 1;
-    }
 
     // program main loop
-    bool done = false;
-    while (!done)
+    Global->setRunning(true);
+    while (Global->isRunning())
     {
-        gScriptManager->ExecuteScripts();
+        ScriptManager->ExecuteScripts();
         // message processing loop
-        SDL_Event event;
-        while (SDL_PollEvent(&event))
+        EvtDirector->ProcessEvents();
+        while(EvtDirector->eventOnStack())
         {
-            // check for messages
-            switch (event.type)
-            {
-                // exit if the window is closed
-            case SDL_QUIT:
-                done = true;
-                break;
-
-                // check for keypresses
-            case SDL_KEYDOWN:
-                {
-                    // exit if ESCAPE is pressed
-                    if (event.key.keysym.sym == SDLK_ESCAPE)
-                        done = true;
-                    break;
-                }
-            } // end switch
-        } // end of message processing
-
-        // DRAWING STARTS HERE
+        	Global->ProcessEvent(EvtDirector->peekEvent());
+        	EvtDirector->popEvent();
+        }
 
         // clear screen
+        SDL_Surface* screen = Video->getScreen();
         SDL_FillRect(screen, 0, SDL_MapRGB(screen->format, 0, 0, 0));
         //Draw All objects
         std::vector<necropolis::CObject*>::iterator it = necropolis::CObjectCollector::mObjectList.begin();
         for(;it != necropolis::CObjectCollector::mObjectList.end(); it++)
         {
-          gTexMan->DrawTexture((*it)->_surface,(*it)->physics.x,(*it)->physics.y,screen);
+          CTextureManager::DrawTexture((*it)->_surface,(*it)->physics.x,(*it)->physics.y,screen);
         }
         // finally, update the screen :)
         SDL_Flip(screen);
     } // end main loop
-
     // all is well ;)
-    printf("Exited cleanly\n");
+    Log->dbgOut( NULL, NULL, "Exited cleanly");
     return 0;
 }
