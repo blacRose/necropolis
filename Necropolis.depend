@@ -1,18 +1,6 @@
 # depslib dependency file v1.0
-1174828953 source:c:\necropolis\main.cpp
-	<cstdlib>
-	<stdlib.h>
-	<fstream>
-	<string>
-	<iterator>
-	<SDL.h>
-	<SGE.h>
-	"CLog.h"
-	"CGlobal.h"
-	"CObjectCollector.h"
-	"CObject.h"
-	"CScriptManager.h"
-	"CTextureManager.h"
+1176050128 source:c:\necropolis\main.cpp
+	"main.h"
 
 1174828953 anager.h"
 
@@ -201,7 +189,7 @@
 	"begin_code.h"
 	"close_code.h"
 
-1174823902 source:c:\necropolis\clog.cpp
+1176045407 source:c:\necropolis\clog.cpp
 	"CLog.h"
 	<stdio.h>
 	<stdarg.h>
@@ -209,40 +197,45 @@
 
 1174837386 >
 
-1175225064 c:\necropolis\clog.h
+1176043016 c:\necropolis\clog.h
 	<windows.h>
+	"template_singleton.h"
 
-1174245363 source:c:\necropolis\cglobal.cpp
+1176051350 source:c:\necropolis\cglobal.cpp
 	"CGlobal.h"
 
 1174245363 "
 
-1174245337 c:\necropolis\cglobal.h
+1176051365 c:\necropolis\cglobal.h
+	"template_singleton.h"
+	"CEvent.h"
+	<SDL.h>
 
-1174820323 source:c:\necropolis\cobjectcollector.cpp
+1176045322 source:c:\necropolis\cobjectcollector.cpp
 	"CObjectCollector.h"
 
 1174262982 llector.h"
 
-1174819818 c:\necropolis\cobjectcollector.h
+1176047528 c:\necropolis\cobjectcollector.h
 	"CObject.h"
 	<vector>
+	"template_singleton.h"
 
-1174829537 c:\necropolis\cobject.h
-	<string>
-	<SDL.h>
-	"CLog.h"
+1176048492 c:\necropolis\cobject.h
+	"CTextureManager.h"
+	"CScriptManager.h"
 
 1174259233 source:c:\necropolis\cobject.cpp
 	"CObject.h"
 
-1175224724 c:\necropolis\cscriptmanager.h
+1176044128 c:\necropolis\cscriptmanager.h
 	"CLog.h"
 	<iostream>
 	<assert.h>
 	<vector>
 	<angelscript.h>
 	"scriptstring/scriptstring.h"
+	"template_singleton.h"
 	<fstream>
 	<string>
 	<iterator>
@@ -529,14 +522,14 @@
 1171824854 c:\sdk\angelscript\2.8.0a\angelscript\include\angelscript.h
 	<stddef.h>
 
-1175224580 source:c:\necropolis\cscriptmanager.cpp
+1176044142 source:c:\necropolis\cscriptmanager.cpp
 	"CScriptManager.h"
 	"asScriptFunctions.h"
 	"CObject.h"
 	"scriptstring/scriptstring.h"
 	<algorithm>
 
-1174837225 c:\necropolis\asscriptfunctions.h
+1175552208 c:\necropolis\asscriptfunctions.h
 	<string>
 	"CLog.h"
 	"CObjectCollector.h"
@@ -545,7 +538,7 @@
 	"CTextureManager.h"
 	<angelscript.h>
 
-1174837242 source:c:\necropolis\asscriptfunctions.cpp
+1175658726 source:c:\necropolis\asscriptfunctions.cpp
 	"asScriptFunctions.h"
 
 1059947074 c:\sdk\sdl\sge030809-w32\src\sge.h
@@ -621,14 +614,15 @@
 	"SDL.h"
 	"sge_internal.h"
 
-1174828374 c:\necropolis\ctexturemanager.h
+1176045572 c:\necropolis\ctexturemanager.h
 	<SDL.h>
 	<vector>
 	<string>
+	"template_singleton.h"
 
-1174920058 source:c:\necropolis\ctexturemanager.cpp
+1176045586 source:c:\necropolis\ctexturemanager.cpp
 	"CTextureManager.h"
-	<SDL_Image.h>
+	<SDL_image.h>
 
 1174920058 .h>
 
@@ -981,4 +975,54 @@
 	<assert.h>
 	<sstream>
 	"scriptstring.h"
+
+1151385468 c:\sdk\sdl\sdl-1.2.11\include\sdl_syswm.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_version.h"
+	"begin_code.h"
+	<X11/Xlib.h>
+	<X11/Xatom.h>
+	<microwin/nano-X.h>
+	<windows.h>
+	<sys/neutrino.h>
+	<Ph.h>
+	"close_code.h"
+
+1176048501 c:\necropolis\main.h
+	<SDL.h>
+	<SGE.h>
+	<stdio.h>
+	<stdarg.h>
+	<SDL_syswm.h>
+	"CGlobal.h"
+	"CObjectCollector.h"
+	"CObject.h"
+	"CScriptManager.h"
+	"CTextureManager.h"
+	"CEventDirector.h"
+	"CLog.h"
+	"CVideo.h"
+	"template_singleton.h"
+
+1176046370 c:\necropolis\template_singleton.h
+
+1176047916 c:\necropolis\cvideo.h
+	<SDL.h>
+	"CLog.h"
+	"template_singleton.h"
+
+1176048092 source:c:\necropolis\cvideo.cpp
+	"CVideo.h"
+
+1176049894 source:c:\necropolis\ceventdirector.cpp
+	"CEventDirector.h"
+
+1176051453 c:\necropolis\ceventdirector.h
+	<list>
+	"CEvent.h"
+	<SDL.h>
+	"template_singleton.h"
+
+1176049710 c:\necropolis\cevent.h
 

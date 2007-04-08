@@ -2,6 +2,7 @@
 #define COBJECTCOLLECTOR_H
 #include "CObject.h"
 #include <vector>
+#include "template_singleton.h"
 ///I add this into most headers because I was getting an
 ///error I have never gotten about NULL not being defined
 #ifndef NULL
@@ -11,14 +12,12 @@
 ///they can easily be tracked by the object collector.
 typedef unsigned int objectRef;
 namespace necropolis{
-  class CObjectCollector{
+  class CObjectCollector : public
+					Singleton<CObjectCollector>{
   private:
   public:
-    static CObjectCollector* _instance;
     static std::vector<CObject*> mObjectList;
-    CObjectCollector();
     ~CObjectCollector();
-    static CObjectCollector* getInstance();
     ///NewObject( CObject* a_objectPtr )
     ///adds an object to the list and returns it's reference.
     static objectRef NewObject(CObject* a_objectPtr);

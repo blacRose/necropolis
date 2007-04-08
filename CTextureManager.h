@@ -3,6 +3,7 @@
 #include <SDL.h>
 #include <vector>
 #include <string>
+#include "template_singleton.h"
 ///I add this into most headers because I was getting an
 ///error I have never gotten about NULL not being defined
 #ifndef NULL
@@ -10,17 +11,17 @@
 #endif
 extern std::vector<SDL_Surface*> mTextureList;
 namespace necropolis{
-  class CTextureManager{
+	typedef unsigned int textureRef_t;
+  class CTextureManager : public
+					Singleton<CTextureManager>{
   private:
   public:
     static unsigned int iTexPos;
-    static CTextureManager* _instance;
-    //static std::vector<SDL_Surface*> mTextureList;
     CTextureManager();
     ~CTextureManager();
-    static CTextureManager* getInstance();
     static void DrawTexture(unsigned int tID, int x, int y, SDL_Surface* screen);
     static unsigned int LoadTexture(std::string fname);
+    static bool FreeTexture(unsigned int texid);
   };
 }
 #endif

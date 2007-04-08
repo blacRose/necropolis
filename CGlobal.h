@@ -3,12 +3,17 @@
 #ifndef NULL
   #define NULL 0
 #endif
+#include "template_singleton.h"
+#include "CEvent.h"
+#include <SDL.h>
 namespace necropolis{
-  class CGlobal{
-    static CGlobal* _instance;
+  class CGlobal : public
+					Singleton<CGlobal>{
   public:
-    CGlobal();
-    static CGlobal* getInstance();
+		//bool run;
+		bool isRunning();
+		void setRunning(bool b=true);
+		bool ProcessEvent(CEvent evt);
   };
 }
 #endif
