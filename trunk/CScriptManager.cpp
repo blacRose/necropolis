@@ -1,15 +1,13 @@
 #include "CScriptManager.h"
 #include "asScriptFunctions.h"
 #include "CObject.h"
+#include "CGlobal.h"
 #include "scriptstring/scriptstring.h"
 #include <algorithm>
-
+extern necropolis::CGlobal* Global;
 namespace necropolis
 	{
-		asIScriptEngine *CScriptManager::engine;
 		std::vector<SContextInfo> CScriptManager::contexts;
-		std::vector<SContextInfo>::iterator CScriptManager::iter;
-		int CScriptManager::iKeyArray[256];
 		void RegisterTypes ( asIScriptEngine *Engine );
 		void RegisterGlobalFunctions ( asIScriptEngine *Engine );
 
@@ -73,7 +71,10 @@ namespace necropolis
 
 			return 0;
 		}
-
+		int CScriptManager::CompileScriptFromFile(std::string fname)
+		{
+			CompileScriptFromFile(fname,fname,fname);
+		}
 		int CScriptManager::CompileScriptFromFile ( std::string &fname, std::string &module, std::string &scriptname )
 		{
 			std::ifstream s_in1 ( fname.c_str() );
@@ -159,7 +160,6 @@ namespace necropolis
 
 			/// Add the context to the list for execution
 			SContextInfo info = {0, ctx};
-
 			contexts.push_back ( info );
 		}
 
@@ -184,12 +184,17 @@ namespace necropolis
 		void RegisterTypes ( asIScriptEngine *engine )
 		{
 			engine->RegisterObjectType (     "sprite_t",   sizeof ( textureRef_t ), asOBJ_PRIMITIVE );
-			engine->RegisterObjectType (     "object_t",               sizeof ( CObject* ), asOBJ_PRIMITIVE );
+			engine->RegisterObjectType (     "object_t",   sizeof ( objectRef_t	 ), asOBJ_PRIMITIVE );
+			engine->RegisterObjectType (     "object_c",   sizeof ( CObject ), asOBJ_CLASS_CD );
+			engine->RegisterObjectBehaviour( "object_c", asBEHAVE_CONSTRUCT,   "void f()",
+																			 asMETHOD(CObject ,Constructor), asCALL_CDECL_OBJLAST);
+			engine->RegisterObjectBehaviour( "object_c", asBEHAVE_DESTRUCT,    "void f()",
+																			 asMETHOD(CObject ,Destructor), asCALL_CDECL_OBJLAST);
 			engine->RegisterGlobalProperty ( "const int KEY_LEFT",   &cKey_Left );
 			engine->RegisterGlobalProperty ( "const int KEY_RIGHT",  &cKey_Right );
 			engine->RegisterGlobalProperty ( "const int KEY_UP",     &cKey_Up );
 			engine->RegisterGlobalProperty ( "const int KEY_DOWN",   &cKey_Down );
-			//engine->RegisterGlobalProperty ( "const bool KeyArray[256]",   &CScriptManager::iKeyArray );
+			engine->RegisterGlobalProperty ( "const int	FPS  ", &Global->framesPerSecond );
 		}
 
 		///Registers all global functions used in the scripting language.
@@ -199,6 +204,7 @@ namespace necropolis
 		void RegisterGlobalFunctions ( asIScriptEngine *engine )
 		{
 			engine->RegisterGlobalFunction ( "void			WindowSetTitle  (string &in)", asFUNCTION ( as_WindowSetTitle ), asCALL_CDECL );
+			engine->RegisterGlobalFunction ( "void			LoadScript  		(string &in)", asFUNCTION ( as_LoadScript ), asCALL_CDECL );
 			engine->RegisterGlobalFunction ( "void			Print           (string &in)", asFUNCTION ( as_PrintString ), asCALL_CDECL );
 			engine->RegisterGlobalFunction ( "void			Print           (int)", asFUNCTION ( as_PrintNumber ), asCALL_CDECL );
 			engine->RegisterGlobalFunction ( "void			Sleep           (uint)", asFUNCTION ( as_ScriptSleep ), asCALL_CDECL );

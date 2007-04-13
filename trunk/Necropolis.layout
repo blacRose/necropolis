@@ -1,46 +1,85 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
 <CodeBlocks_layout_file>
 	<ActiveTarget name="Debug" />
+	<File name="CEvent.h" open="0" top="0" tabpos="0">
+		<Cursor position="185" topLine="10" />
+	</File>
+	<File name="CEventDirector.cpp" open="0" top="0" tabpos="0">
+		<Cursor position="100" topLine="0" />
+	</File>
+	<File name="CEventDirector.h" open="0" top="0" tabpos="0">
+		<Cursor position="196" topLine="0" />
+	</File>
+	<File name="CGlobal.cpp" open="0" top="0" tabpos="3">
+		<Cursor position="218" topLine="0" />
+	</File>
+	<File name="CGlobal.h" open="0" top="0" tabpos="2">
+		<Cursor position="9" topLine="8" />
+	</File>
+	<File name="CGraphics.cpp" open="1" top="0" tabpos="1">
+		<Cursor position="144" topLine="0" />
+	</File>
+	<File name="CGraphics.h" open="1" top="1" tabpos="2">
+		<Cursor position="838" topLine="28" />
+	</File>
 	<File name="CLog.cpp" open="0" top="0" tabpos="2">
-		<Cursor position="17" topLine="27" />
+		<Cursor position="355" topLine="3" />
 	</File>
 	<File name="CLog.h" open="0" top="0" tabpos="5">
-		<Cursor position="30" topLine="0" />
+		<Cursor position="194" topLine="0" />
 	</File>
-	<File name="CObject.h" open="0" top="0" tabpos="2">
-		<Cursor position="176" topLine="0" />
+	<File name="CObject.h" open="0" top="0" tabpos="8">
+		<Cursor position="637" topLine="13" />
 	</File>
-	<File name="CObjectCollector.h" open="0" top="0" tabpos="7">
-		<Cursor position="515" topLine="0" />
+	<File name="CObjectCollector.cpp" open="0" top="0" tabpos="0">
+		<Cursor position="655" topLine="0" />
 	</File>
-	<File name="CScriptManager.cpp" open="1" top="0" tabpos="2">
-		<Cursor position="6871" topLine="189" />
+	<File name="CObjectCollector.h" open="0" top="0" tabpos="2">
+		<Cursor position="519" topLine="5" />
 	</File>
-	<File name="CScriptManager.h" open="1" top="0" tabpos="1">
-		<Cursor position="629" topLine="14" />
+	<File name="CScriptManager.cpp" open="0" top="0" tabpos="2">
+		<Cursor position="2658" topLine="60" />
+	</File>
+	<File name="CScriptManager.h" open="0" top="0" tabpos="1">
+		<Cursor position="1357" topLine="28" />
 	</File>
 	<File name="CTextureManager.cpp" open="0" top="0" tabpos="4">
-		<Cursor position="1166" topLine="26" />
+		<Cursor position="442" topLine="8" />
 	</File>
-	<File name="CTextureManager.h" open="0" top="0" tabpos="0">
-		<Cursor position="263" topLine="2" />
+	<File name="CTextureManager.h" open="0" top="0" tabpos="6">
+		<Cursor position="477" topLine="0" />
+	</File>
+	<File name="CVideo.cpp" open="0" top="0" tabpos="0">
+		<Cursor position="359" topLine="3" />
+	</File>
+	<File name="CVideo.h" open="0" top="0" tabpos="0">
+		<Cursor position="142" topLine="0" />
 	</File>
 	<File name="asScriptFunctions.cpp" open="0" top="0" tabpos="3">
-		<Cursor position="522" topLine="0" />
+		<Cursor position="405" topLine="11" />
 	</File>
 	<File name="asScriptFunctions.h" open="0" top="0" tabpos="0">
-		<Cursor position="197" topLine="0" />
+		<Cursor position="477" topLine="0" />
 	</File>
-	<File name="main.cpp" open="1" top="0" tabpos="3">
-		<Cursor position="556" topLine="0" />
+	<File name="main.as" open="0" top="0" tabpos="0">
+		<Cursor position="19" topLine="0" />
+	</File>
+	<File name="main.cpp" open="0" top="0" tabpos="1">
+		<Cursor position="4466" topLine="45" />
 	</File>
 	<File name="main.h" open="0" top="0" tabpos="4">
-		<Cursor position="187" topLine="0" />
+		<Cursor position="675" topLine="11" />
 	</File>
 	<File name="script1.as" open="0" top="0" tabpos="3">
-		<Cursor position="292" topLine="0" />
+		<Cursor position="88" topLine="0" />
 	</File>
 	<File name="script2.as" open="0" top="0" tabpos="0">
 		<Cursor position="48" topLine="0" />
+	</File>
+	<File name="..\SDK\AngelScript\2.8.0a\add_on\scriptstring\scriptstring.cpp" open="0" top="0" tabpos="0">
+		<Cursor position="15584" topLine="582" />
+	</File>
+	<File name="..\SDK\AngelScript\2.8.0a\angelscript\include\angelscript.h" open="0" top="0" tabpos="0">
+		<Cursor position="19276" topLine="343" />
 	</File>
 </CodeBlocks_layout_file>

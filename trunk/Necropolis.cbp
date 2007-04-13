@@ -5,9 +5,10 @@
 		<Option title="Necropolis" />
 		<Option pch_mode="2" />
 		<Option compiler="gcc" />
-		<Option virtualFolders="Game\;AngelScript\;Game\Engine\Singletons\;" />
+		<Option virtualFolders="Game\;AngelScript\;Game\Engine\Singletons\;Game\Engine\;" />
 		<Build>
 			<Target title="Debug">
+				<Option platforms="Windows;" />
 				<Option output="bin\Debug\Necropolis.exe" prefix_auto="1" extension_auto="1" />
 				<Option object_output="obj\Debug\" />
 				<Option type="0" />
@@ -23,6 +24,7 @@
 					<Add directory="C:\SDK\SDL\sge030809-w32" />
 					<Add directory="C:\SDK\SDL\sge030809-w32\src" />
 					<Add directory="C:\SDK\SDL\SDL_image-1.2.5\include" />
+					<Add directory="C:\SDK\ltimer" />
 				</Compiler>
 				<Linker>
 					<Add library="mingw32" />
@@ -40,6 +42,7 @@
 				</Linker>
 			</Target>
 			<Target title="Release">
+				<Option platforms="Windows;" />
 				<Option output="bin\Release\Necropolis.exe" prefix_auto="1" extension_auto="1" />
 				<Option object_output="obj\Release\" />
 				<Option type="0" />
@@ -70,6 +73,7 @@
 				</Linker>
 			</Target>
 			<Target title="Linux(debug)">
+				<Option platforms="Unix;" />
 				<Option output="Necropolis.exe" prefix_auto="1" extension_auto="1" />
 				<Option type="0" />
 				<Option compiler="gcc" />
@@ -94,6 +98,7 @@
 				</Linker>
 			</Target>
 			<Target title="Linux(release)">
+				<Option platforms="Unix;" />
 				<Option output="Necropolis.exe" prefix_auto="1" extension_auto="1" />
 				<Option type="0" />
 				<Option compiler="gcc" />
@@ -107,6 +112,40 @@
 					<Add directory="\home\Development\SDK\SDL\SDL_image-1.2.5\include" />
 				</Compiler>
 			</Target>
+			<Target title="Win32 Intel Compiler">
+				<Option platforms="Windows;" />
+				<Option output="bin\Debug\Necropolis.exe" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj\Debug\" />
+				<Option type="0" />
+				<Option compiler="icc" />
+				<Compiler>
+					<Add option="-fexpensive-optimizations" />
+					<Add option="-O3" />
+					<Add option="-g" />
+					<Add option="-DDEBUG_TRACE" />
+					<Add directory="C:\SDK\SDL\SDL-1.2.11\include" />
+					<Add directory="C:\SDK\AngelScript\2.8.0a\angelscript\include" />
+					<Add directory="C:\SDK\AngelScript\2.8.0a\add_on" />
+					<Add directory="C:\SDK\SDL\sge030809-w32" />
+					<Add directory="C:\SDK\SDL\sge030809-w32\src" />
+					<Add directory="C:\SDK\SDL\SDL_image-1.2.5\include" />
+					<Add directory="C:\SDK\ltimer" />
+				</Compiler>
+				<Linker>
+					<Add library="mingw32" />
+					<Add library="SDLmain" />
+					<Add library="SDL.dll" />
+					<Add library="user32" />
+					<Add library="gdi32" />
+					<Add library="winmm" />
+					<Add library="dxguid" />
+					<Add library="C:\SDK\AngelScript\2.8.0a\angelscript\lib\libangelscript.a" />
+					<Add library="C:\SDK\SDL\sge030809-w32\libSGE.a" />
+					<Add library="SDL_Image" />
+					<Add directory="C:\SDK\SDL\SDL-1.2.11\lib" />
+					<Add directory="C:\SDK\SDL\SDL_image-1.2.5\lib" />
+				</Linker>
+			</Target>
 		</Build>
 		<Compiler>
 			<Add option="-W" />
@@ -116,7 +155,7 @@
 			<Add directory="\home\Development\SDK\SDL\SDL_image-1.2.5\lib" />
 		</Linker>
 		<Unit filename="CEvent.h">
-			<Option virtualFolder="Game\" />
+			<Option virtualFolder="Game\Engine\" />
 		</Unit>
 		<Unit filename="CEventDirector.cpp">
 			<Option virtualFolder="Game\Engine\Singletons\" />
@@ -131,6 +170,13 @@
 			<Option virtualFolder="Game\Engine\Singletons\" />
 			<Option target="Debug" />
 			<Option target="Release" />
+			<Option target="Win32 Intel Compiler" />
+		</Unit>
+		<Unit filename="CGraphics.cpp">
+			<Option virtualFolder="Game\Engine\" />
+		</Unit>
+		<Unit filename="CGraphics.h">
+			<Option virtualFolder="Game\Engine\" />
 		</Unit>
 		<Unit filename="CLog.cpp">
 			<Option virtualFolder="Game\Engine\Singletons\" />
@@ -139,14 +185,16 @@
 			<Option virtualFolder="Game\Engine\Singletons\" />
 			<Option target="Debug" />
 			<Option target="Release" />
+			<Option target="Win32 Intel Compiler" />
 		</Unit>
 		<Unit filename="CObject.cpp">
-			<Option virtualFolder="Game\" />
+			<Option virtualFolder="Game\Engine\" />
 		</Unit>
 		<Unit filename="CObject.h">
-			<Option virtualFolder="Game\" />
+			<Option virtualFolder="Game\Engine\" />
 			<Option target="Debug" />
 			<Option target="Release" />
+			<Option target="Win32 Intel Compiler" />
 		</Unit>
 		<Unit filename="CObjectCollector.cpp">
 			<Option virtualFolder="Game\Engine\Singletons\" />
@@ -155,6 +203,7 @@
 			<Option virtualFolder="Game\Engine\Singletons\" />
 			<Option target="Debug" />
 			<Option target="Release" />
+			<Option target="Win32 Intel Compiler" />
 		</Unit>
 		<Unit filename="CScriptManager.cpp">
 			<Option virtualFolder="Game\Engine\Singletons\" />
@@ -163,6 +212,7 @@
 			<Option virtualFolder="Game\Engine\Singletons\" />
 			<Option target="Debug" />
 			<Option target="Release" />
+			<Option target="Win32 Intel Compiler" />
 		</Unit>
 		<Unit filename="CTextureManager.cpp">
 			<Option virtualFolder="Game\Engine\Singletons\" />
@@ -171,6 +221,7 @@
 			<Option virtualFolder="Game\Engine\Singletons\" />
 			<Option target="Debug" />
 			<Option target="Release" />
+			<Option target="Win32 Intel Compiler" />
 		</Unit>
 		<Unit filename="CVideo.cpp">
 			<Option virtualFolder="Game\Engine\Singletons\" />
@@ -179,19 +230,24 @@
 			<Option virtualFolder="Game\Engine\Singletons\" />
 		</Unit>
 		<Unit filename="asScriptFunctions.cpp">
-			<Option virtualFolder="Game\" />
+			<Option virtualFolder="Game\Engine\" />
 		</Unit>
 		<Unit filename="asScriptFunctions.h">
-			<Option virtualFolder="Game\" />
+			<Option virtualFolder="Game\Engine\" />
 			<Option target="Debug" />
 			<Option target="Release" />
+			<Option target="Win32 Intel Compiler" />
 		</Unit>
 		<Unit filename="base_instance.h">
-			<Option virtualFolder="Game\" />
+			<Option virtualFolder="Game\Engine\" />
 			<Option target="Debug" />
 			<Option target="Release" />
+			<Option target="Win32 Intel Compiler" />
 		</Unit>
 		<Unit filename="bin\Debug\stdout.txt">
+			<Option virtualFolder="Game\" />
+		</Unit>
+		<Unit filename="main.as">
 			<Option virtualFolder="Game\" />
 		</Unit>
 		<Unit filename="main.cpp">
@@ -204,11 +260,13 @@
 			<Option virtualFolder="Game\" />
 			<Option target="Debug" />
 			<Option target="Release" />
+			<Option target="Win32 Intel Compiler" />
 		</Unit>
 		<Unit filename="script2.as">
 			<Option virtualFolder="Game\" />
 			<Option target="Debug" />
 			<Option target="Release" />
+			<Option target="Win32 Intel Compiler" />
 		</Unit>
 		<Unit filename="..\SDK\AngelScript\2.8.0a\add_on\scriptstring\scriptstring.cpp">
 			<Option virtualFolder="AngelScript\" />
@@ -217,11 +275,13 @@
 			<Option virtualFolder="AngelScript\" />
 			<Option target="Debug" />
 			<Option target="Release" />
+			<Option target="Win32 Intel Compiler" />
 		</Unit>
 		<Unit filename="..\SDK\AngelScript\2.8.0a\angelscript\include\angelscript.h">
 			<Option virtualFolder="AngelScript\" />
 			<Option target="Debug" />
 			<Option target="Release" />
+			<Option target="Win32 Intel Compiler" />
 		</Unit>
 		<Extensions>
 			<code_completion />

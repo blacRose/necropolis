@@ -1,0 +1,9 @@
+Hello World
+  global::main() - "Hello World"
+  AngelScript::Game() - "32"
+  AngelScript::Game() - "49"
+  global::FPS() - "4146275"
+  global::FPS() - "259"
+  global::FPS() - "413"
+  global::FPS() - "288"
+Exited cleanly

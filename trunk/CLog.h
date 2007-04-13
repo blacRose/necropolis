@@ -6,10 +6,8 @@
 #ifndef NULL
   #define NULL 0
 #endif
-#include "template_singleton.h"
 namespace necropolis{
-  class CLog: public
-		Singleton<CLog>{
+  class CLog{
   public:
     CLog();
     static int dbgOut(char* cls, char* func, char* fmt,...);

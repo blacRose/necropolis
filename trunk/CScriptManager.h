@@ -28,23 +28,24 @@ namespace necropolis{
   ///Callback for AngelScript Warnings, Errors, and Info
   void MessageCallback(const asSMessageInfo *msg, void *param);
 
-  class CScriptManager : public
-					Singleton<CScriptManager>{
+  class CScriptManager{
   private:
-    static asIScriptEngine *engine;
+     asIScriptEngine *engine;
   public:
-    static int iKeyArray[256];
-    CScriptManager();
+     int iKeyArray[256];
     ~CScriptManager();
-    static void Initialize();
-    static void AddContext(int funcID);
-    static void ExecuteScripts();
-    static void SetSleeping(asIScriptContext *ctx, UINT milliSeconds);
-    static void AbortAll();
-    static int CompileScript(std::string &str, std::string &module, std::string &scriptname);
-    static int CompileScriptFromFile(std::string &fname, std::string &module, std::string &scriptname);
-    static std::vector<SContextInfo>::iterator iter;
-    static std::vector<SContextInfo> contexts;
+     void Initialize();
+     void AddContext(int funcID);
+     void ExecuteScripts();
+     static void SetSleeping(asIScriptContext *ctx, UINT milliSeconds);
+     void AbortAll();
+     int CompileScript(std::string &str, std::string &module, std::string &scriptname);
+     int CompileScriptFromFile(std::string &fname, std::string &module, std::string &scriptname);
+     int CompileScriptFromFile(std::string fname);
+     std::vector<SContextInfo>::iterator iter;
+     static std::vector<SContextInfo> contexts;
+     static std::vector<SContextInfo> contextTodo;
+     static bool isInScript;
   };
 }
 ///The following classes are used for concurrent script

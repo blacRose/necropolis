@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1176050128 source:c:\necropolis\main.cpp
+1176486724 source:c:\necropolis\main.cpp
 	"main.h"
 
 1174828953 anager.h"
@@ -197,38 +197,37 @@
 
 1174837386 >
 
-1176043016 c:\necropolis\clog.h
+1176419401 c:\necropolis\clog.h
 	<windows.h>
-	"template_singleton.h"
 
-1176051350 source:c:\necropolis\cglobal.cpp
+1176426482 source:c:\necropolis\cglobal.cpp
 	"CGlobal.h"
 
 1174245363 "
 
-1176051365 c:\necropolis\cglobal.h
-	"template_singleton.h"
+1176441616 c:\necropolis\cglobal.h
+	"CLog.h"
 	"CEvent.h"
 	<SDL.h>
 
-1176045322 source:c:\necropolis\cobjectcollector.cpp
+1176426186 source:c:\necropolis\cobjectcollector.cpp
 	"CObjectCollector.h"
 
 1174262982 llector.h"
 
-1176047528 c:\necropolis\cobjectcollector.h
+1176420849 c:\necropolis\cobjectcollector.h
 	"CObject.h"
 	<vector>
 	"template_singleton.h"
 
-1176048492 c:\necropolis\cobject.h
+1176423571 c:\necropolis\cobject.h
 	"CTextureManager.h"
 	"CScriptManager.h"
 
 1174259233 source:c:\necropolis\cobject.cpp
 	"CObject.h"
 
-1176044128 c:\necropolis\cscriptmanager.h
+1176425778 c:\necropolis\cscriptmanager.h
 	"CLog.h"
 	<iostream>
 	<assert.h>
@@ -522,14 +521,15 @@
 1171824854 c:\sdk\angelscript\2.8.0a\angelscript\include\angelscript.h
 	<stddef.h>
 
-1176044142 source:c:\necropolis\cscriptmanager.cpp
+1176425773 source:c:\necropolis\cscriptmanager.cpp
 	"CScriptManager.h"
 	"asScriptFunctions.h"
 	"CObject.h"
+	"CGlobal.h"
 	"scriptstring/scriptstring.h"
 	<algorithm>
 
-1175552208 c:\necropolis\asscriptfunctions.h
+1176423915 c:\necropolis\asscriptfunctions.h
 	<string>
 	"CLog.h"
 	"CObjectCollector.h"
@@ -537,8 +537,9 @@
 	"CScriptManager.h"
 	"CTextureManager.h"
 	<angelscript.h>
+	"main.h"
 
-1175658726 source:c:\necropolis\asscriptfunctions.cpp
+1176423956 source:c:\necropolis\asscriptfunctions.cpp
 	"asScriptFunctions.h"
 
 1059947074 c:\sdk\sdl\sge030809-w32\src\sge.h
@@ -614,13 +615,13 @@
 	"SDL.h"
 	"sge_internal.h"
 
-1176045572 c:\necropolis\ctexturemanager.h
+1176058278 c:\necropolis\ctexturemanager.h
 	<SDL.h>
 	<vector>
 	<string>
 	"template_singleton.h"
 
-1176045586 source:c:\necropolis\ctexturemanager.cpp
+1176058173 source:c:\necropolis\ctexturemanager.cpp
 	"CTextureManager.h"
 	<SDL_image.h>
 
@@ -989,12 +990,13 @@
 	<Ph.h>
 	"close_code.h"
 
-1176048501 c:\necropolis\main.h
+1176425734 c:\necropolis\main.h
 	<SDL.h>
+	<SDL_syswm.h>
 	<SGE.h>
 	<stdio.h>
 	<stdarg.h>
-	<SDL_syswm.h>
+	"ltimer.h"
 	"CGlobal.h"
 	"CObjectCollector.h"
 	"CObject.h"
@@ -1007,7 +1009,7 @@
 
 1176046370 c:\necropolis\template_singleton.h
 
-1176047916 c:\necropolis\cvideo.h
+1176058335 c:\necropolis\cvideo.h
 	<SDL.h>
 	"CLog.h"
 	"template_singleton.h"
@@ -1015,14 +1017,26 @@
 1176048092 source:c:\necropolis\cvideo.cpp
 	"CVideo.h"
 
-1176049894 source:c:\necropolis\ceventdirector.cpp
+1176413195 source:c:\necropolis\ceventdirector.cpp
 	"CEventDirector.h"
 
-1176051453 c:\necropolis\ceventdirector.h
-	<list>
+1176413209 c:\necropolis\ceventdirector.h
 	"CEvent.h"
+	<list>
 	<SDL.h>
-	"template_singleton.h"
 
 1176049710 c:\necropolis\cevent.h
+
+1176417889 c:\sdk\ltimer\ltimer.h
+	<windows.h>
+
+1056020078 source:c:\sdk\ltimer\ltimer.cpp
+	<assert.h>
+	<stdio.h>
+	"ltimer.h"
+
+1056020830 source:c:\sdk\ltimer\main.cpp
+	<assert.h>
+	<stdio.h>
+	"ltimer.h"
 
