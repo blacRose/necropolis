@@ -4,8 +4,7 @@
 #include "CLog.h"
 #include "template_singleton.h"
 namespace necropolis{
-	class CVideo : public
-					Singleton<CVideo>{
+	class CVideo{
 	private:
 		//static SDL_Surface* screen;
 	public:

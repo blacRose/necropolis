@@ -5,11 +5,16 @@
 #endif
 
 #define _SGE_NO_CLASSES
+///SDL Includes
 #include <SDL.h>
+#include <SDL_syswm.h>
 #include <SGE.h>
+///STL Includes
 #include <stdio.h>
 #include <stdarg.h>
-#include <SDL_syswm.h>
+///ltimer
+#include "ltimer.h"
+///Engine Includes
 #include "CGlobal.h"
 #include "CObjectCollector.h"
 #include "CObject.h"
@@ -19,6 +24,7 @@
 #include "CLog.h"
 #include "CVideo.h"
 #include "template_singleton.h"
+#define	 T(x) std::string(x)
 ///Type Definitions
 ///Global Definitions
 extern std::vector<SDL_Surface*> mTextureList;
@@ -29,4 +35,5 @@ extern necropolis::CScriptManager* ScriptManager;
 extern necropolis::CObjectCollector* ObjCollector;
 extern necropolis::CTextureManager* TexMan;
 extern necropolis::CEventDirector* EvtDirector;
+
 #endif

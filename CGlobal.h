@@ -3,17 +3,33 @@
 #ifndef NULL
   #define NULL 0
 #endif
-#include "template_singleton.h"
+#include "CLog.h"
 #include "CEvent.h"
 #include <SDL.h>
+extern bool run;
 namespace necropolis{
-  class CGlobal : public
-					Singleton<CGlobal>{
+  class CGlobal{
   public:
-		//bool run;
-		bool isRunning();
-		void setRunning(bool b=true);
-		bool ProcessEvent(CEvent evt);
+		Uint32 timeCurrent, timeSecond, timeDelta;
+		int framesPerSecond;
+
+		/// void resetFPSCounter()
+		///	-resets the variables
+		///
+		void resetFPSCounter();
+
+		/// void tickFPS()
+		///
+		///
+		void tickFPS();
+
+		/// void resetFPS()
+		///
+		///
+		void resetFPS();
+		static bool isRunning();
+		static void setRunning(bool b=true);
+		static bool ProcessEvent(CEvent evt);
   };
 }
 #endif

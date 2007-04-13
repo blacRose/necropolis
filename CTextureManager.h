@@ -9,19 +9,18 @@
 #ifndef NULL
   #define NULL 0
 #endif
-extern std::vector<SDL_Surface*> mTextureList;
 namespace necropolis{
 	typedef unsigned int textureRef_t;
-  class CTextureManager : public
-					Singleton<CTextureManager>{
+  class CTextureManager{
   private:
+		std::vector<SDL_Surface*> mTextureList;
   public:
-    static unsigned int iTexPos;
-    CTextureManager();
+    unsigned int iTexPos;
+    CTextureManager(){iTexPos = 1;mTextureList.reserve(32);};
     ~CTextureManager();
-    static void DrawTexture(unsigned int tID, int x, int y, SDL_Surface* screen);
-    static unsigned int LoadTexture(std::string fname);
-    static bool FreeTexture(unsigned int texid);
+    void DrawTexture(unsigned int tID, int x, int y, SDL_Surface* screen);
+    unsigned int LoadTexture(std::string fname);
+    bool FreeTexture(unsigned int texid);
   };
 }
 #endif

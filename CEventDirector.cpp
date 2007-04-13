@@ -21,20 +21,23 @@ namespace necropolis{
 				{
 						// exit if the window is closed
 				case SDL_QUIT:
-						t_evt.EventType = CEvent::EVT_WINDOWCLOSE;
-						break;
+								t_evt.EventType = CEvent::EVT_WINDOWCLOSE;
+								pushEvent(t_evt);
+								break;
 
 						// check for keypresses
 				case SDL_KEYDOWN:
 						{
 								t_evt.EventType = CEvent::EVT_KEYPRESS;
 								t_evt.data.keyPress.key = event.key.keysym.sym;
+								pushEvent(t_evt);
 								break;
 						}
 				case SDL_KEYUP:
 						{
 								t_evt.EventType = CEvent::EVT_KEYRELEASE;
 								t_evt.data.keyRelease.key = event.key.keysym.sym;
+								pushEvent(t_evt);
 								break;
 						}
 				case SDL_MOUSEBUTTONDOWN:
@@ -43,6 +46,7 @@ namespace necropolis{
 								t_evt.data.mousePress.button = event.button.button;
 								t_evt.data.mousePress.x = event.button.x;
 								t_evt.data.mousePress.y = event.button.y;
+								pushEvent(t_evt);
 								break;
 						}
 				case SDL_MOUSEBUTTONUP:
@@ -52,9 +56,11 @@ namespace necropolis{
 								t_evt.data.mouseRelease.x = event.button.x;
 								t_evt.data.mouseRelease.y = event.button.y;
 								break;
+								pushEvent(t_evt);
 						}
+				default:
+						break;
 				} // end switch
-				pushEvent(t_evt);
 		} // end of message processing
 	}
 	int CEventDirector::eventOnStack(){

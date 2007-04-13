@@ -2,6 +2,7 @@
 #define COBJECT_H
 #include "CTextureManager.h"
 #include "CScriptManager.h"
+extern necropolis::CTextureManager* TexMan;
 
 namespace necropolis{
 		typedef unsigned int objectRef_t;
@@ -38,6 +39,7 @@ namespace necropolis{
 					obj->physics.y = 0;
 					obj->_tag = "";
 					obj->_surface = 0;
+					CLog::dbgOut("CObject","Constructor","New object: %i");
 				};
 
 				void Destructor ( CObject *obj )
@@ -53,18 +55,16 @@ namespace necropolis{
 					//obj->_surface->clip_rect.y = obj->physics.y;
 				}
 
-				int setSprite ( CObject* object, std::string fname )
+				int setSprite ( std::string fname )
 				{
-					if ( !object->_surface )
+					if ( !_surface )
 						{
-							//SDL_FreeSurface(object->_surface);
-							//necropolis::CTextureManager::FreeTexture(object->_surface);
-							object->_surface = necropolis::CTextureManager::LoadTexture ( fname.c_str() );
+							_surface = TexMan->LoadTexture ( fname.c_str() );
 						}else{
-							object->_surface = necropolis::CTextureManager::LoadTexture ( fname.c_str() );
+							_surface = TexMan->LoadTexture ( fname.c_str() );
 						}
 
-					if ( !object->_surface )
+					if ( !_surface )
 						{
 							return false;
 						}else{

@@ -1,8 +1,6 @@
 #include "CTextureManager.h"
 #include <SDL_image.h>
 namespace necropolis{
-  unsigned int CTextureManager::iTexPos = 1;
-
   unsigned int CTextureManager::LoadTexture(std::string fname)
   {
     if(iTexPos%31 == 0)
