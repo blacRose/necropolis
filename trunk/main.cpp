@@ -33,6 +33,8 @@ necropolis::CVideo* Video;
 necropolis::CScriptManager* ScriptManager;
 necropolis::CObjectCollector* ObjCollector;
 necropolis::CTextureManager* TexMan;
+SDL_Event event;
+SDL_Surface* screen;
 
 ///////////////////////////////////////
 //	Function: main									 //
@@ -46,73 +48,67 @@ necropolis::CTextureManager* TexMan;
 ///////////////////////////////////////
 int main ( int argc, char** argv )
 {
-    //Setup Main Class Objects
-    //CLog allows the developer to write debug information
-    //into a nice clean console window that can be disabled
-    //by changing to release mode
-    Log  					= new necropolis::CLog;
-    //CGlobal allows the developer to create a set of variables
-    //into a single class that is meant to be a container(of
-    //sorts)
-    Global 				= new necropolis::CGlobal;
-    //CScriptManager gives application control to the
-    //AngelScript scripting language
-    ScriptManager = new necropolis::CScriptManager;
-    //CVideo is used to Initialize the SDL window and also
-    Video 				= new necropolis::CVideo;
-    ObjCollector 	= new necropolis::CObjectCollector;
-    TexMan 				= new necropolis::CTextureManager;
+	//Setup Main Class Objects
+	//CLog allows the developer to write debug information
+	//into a nice clean console window that can be disabled
+	//by changing to release mode
+	Log  					= new necropolis::CLog;
+	//CGlobal allows the developer to create a set of variables
+	//into a single class that is meant to be a container(of
+	//sorts)
+	Global 				= new necropolis::CGlobal;
+	//CScriptManager gives application control to the
+	//AngelScript scripting language
+	ScriptManager = new necropolis::CScriptManager;
+	//CVideo is used to Initialize the SDL window and also
+	Video 				= new necropolis::CVideo;
+	ObjCollector 	= new necropolis::CObjectCollector;
+	TexMan 				= new necropolis::CTextureManager;
 
-    //and Initialize whatever ones need to e initialized
-    Video->Initialize();
-    ScriptManager->Initialize();
+	//and Initialize whatever ones need to be initialized
+	Global->Init();
+	Video->Initialize();
+	ScriptManager->Initialize();
 
-    //define and compile the two scripts that will run
-    ScriptManager->CompileScriptFromFile(T("script1.as"));
-    ScriptManager->CompileScriptFromFile(T("script2.as"));
+	//define and compile the two scripts that will run
+	ScriptManager->CompileScriptFromFile(T("script1.as"));
+	ScriptManager->CompileScriptFromFile(T("script2.as"));
 
-    // create a new window
+	// create a new window
 
-    // program main loop
-    Global->setRunning(true);
-		SDL_Event event;
-		Global->framesPerSecond = 0;
-		Global->resetFPS();
-    while (Global->isRunning())
-    {
-				Global->tickFPS();
-        ScriptManager->ExecuteScripts();
-        // message processing loop
-				while (SDL_PollEvent(&event))
-				{
-					CEvent evt = ProcessEvents(event);
-					switch(evt.EventType){
-						case CEvent::EVT_WINDOWCLOSE:
-							Global->setRunning(false);
-							break;
-						case CEvent::EVT_KEYPRESS:
-							if(evt.data.keyPress.key == SDLK_ESCAPE)
-								Global->setRunning(false);
-							break;
-					}
-				}
-        // clear screen
-        SDL_Surface* screen = Video->getScreen();
-        SDL_FillRect(screen, 0, SDL_MapRGB(screen->format, 0, 0, 0));
-        //Draw All objects
-        std::vector<necropolis::CObject*>::iterator it = ObjCollector->mObjectList.begin();
-        for(;it != ObjCollector->mObjectList.end(); it++)
-        {
-          TexMan->DrawTexture((*it)->_surface,(*it)->physics.x,(*it)->physics.y,screen);
-        }
-        // finally, update the screen :)
-        SDL_Flip(screen);
-				Global->framesPerSecond++;
-    } // end main loop
-    // all is well ;)
-    SDL_Quit();
-    Log->dbgOut( NULL, NULL, "Exited cleanly");
-    return 0;
+	// program main loop
+	Global->setRunning(true);
+	Global->framesPerSecond = 0;
+	Global->resetFPS();
+	// clear screen
+	screen = Video->getScreen();
+	while (Global->isRunning())
+	{
+		Global->tickFPS();
+		ScriptManager->ExecuteScripts();
+		// message processing loop
+		while (SDL_PollEvent(&event))
+		{
+			CEvent evt = ProcessEvents(event);
+			switch(evt.EventType){
+				case CEvent::EVT_WINDOWCLOSE:
+					Global->setRunning(false);
+					break;
+				case CEvent::EVT_KEYPRESS:
+					if(evt.data.keyPress.key == SDLK_ESCAPE)
+						Global->setRunning(false);
+					break;
+			}
+		}
+		SDL_FillRect(screen, 0, SDL_MapRGB(screen->format, 0, 0, 0));
+		//Draw All objects
+		ObjCollector->DrawAllObjects(screen);
+		// finally, update the screen :)
+		SDL_Flip(screen);
+		Global->framesPerSecond++;
+	} // end main loop
+	Global->Shutdown();
+	return 0;
 }
 ///////////////////////////////////////
 //	Function: ProcessEvents					 //

@@ -3,12 +3,12 @@
 namespace necropolis{
   void as_PrintString(std::string &str)
   {
-    CLog::dbgOut("AngelScript","Game","%s", str.c_str());
+    DBGOUT("AngelScript","Game","%s", str.c_str());
   }
 
   void as_PrintNumber(int num)
   {
-    CLog::dbgOut("AngelScript","Game","%i", num);
+    DBGOUT("AngelScript","Game","%i", num);
   }
 
   void as_WindowSetTitle(std::string name)
@@ -68,7 +68,7 @@ namespace necropolis{
     t_obj->physics.y = y;
     t_obj->_surface = 0;
     objectRef_t obj = ObjCollector->NewObject(t_obj);
-    CLog::dbgOut("AngelScript","Object","New Object %i", obj);
+    DBGOUT("AngelScript","Object","New Object %i", obj);
     return obj;
   }
   int as_SetObjectSprite(objectRef_t object, std::string fname)
