@@ -3,6 +3,7 @@
 #include "CObject.h"
 #include <vector>
 #include "template_singleton.h"
+#include "CTextureManager.h"
 ///I add this into most headers because I was getting an
 ///error I have never gotten about NULL not being defined
 #ifndef NULL
@@ -11,6 +12,7 @@
 ///the type 'objectRef' is given to every object so that
 ///they can easily be tracked by the object collector.
 typedef unsigned int objectRef;
+
 namespace necropolis{
   class CObjectCollector{
   private:
@@ -27,6 +29,7 @@ namespace necropolis{
     void FreeObject(objectRef a_objectRef);
 
     CObject* GetObjectByRef(objectRef oRef);
+    void DrawAllObjects(SDL_Surface* screen);
   };
 }
 #endif

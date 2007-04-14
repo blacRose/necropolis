@@ -39,7 +39,7 @@ namespace necropolis{
 					obj->physics.y = 0;
 					obj->_tag = "";
 					obj->_surface = 0;
-					CLog::dbgOut("CObject","Constructor","New object: %i");
+					DBGOUT("CObject","Constructor","New object: %i");
 				};
 
 				void Destructor ( CObject *obj )

@@ -23,15 +23,11 @@ cp[2] is the second control point, or P2 in the above diagram
 cp[3] is the end point, or P3 in the above diagram
 t is the parameter value, 0 <= t <= 1
 */
-template<int N>
-class TSqr {
-public:
-    enum { value = N + TSqr<N-1>::value };
-};
 template <class T>
 	T TSqr(T x)
 	{
-		x = TSqr(x-1);
+		if(x > 0)
+		return x + TSqr(x-1);
 	}
 template <class T>
    T PointOnCubicBezier(T *cp, float t) //C++ function template sample

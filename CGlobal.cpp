@@ -16,7 +16,7 @@ namespace necropolis{
 		timeDelta = (timeCurrent - timeSecond);
 		if(timeDelta > 1000)
 		{
-			CLog::dbgOut( "Global", "tickFPS", "%i", framesPerSecond);
+			DBGOUT( "Global", "tickFPS", "%i", framesPerSecond);
 			timeSecond = SDL_GetTicks();
 			framesPerSecond = 0;
 		}
@@ -37,5 +37,19 @@ namespace necropolis{
 					setRunning(false);
 				break;
 		}
+	}
+	void CGlobal::Init()
+	{
+		if ( SDL_Init( SDL_INIT_VIDEO ) < 0 )
+    {
+      DBGOUT( "CGlobal", "Init", "Unable to init SDL: %s\n", SDL_GetError());
+      return;
+    }
+	}
+	void CGlobal::Shutdown()
+	{
+    // all is well ;)
+    SDL_Quit();
+    DBGOUT( NULL, NULL, "Exited cleanly");
 	}
 }

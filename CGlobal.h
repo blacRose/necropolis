@@ -27,6 +27,8 @@ namespace necropolis{
 		///
 		///
 		void resetFPS();
+		void Init();
+		void Shutdown();
 		static bool isRunning();
 		static void setRunning(bool b=true);
 		static bool ProcessEvent(CEvent evt);

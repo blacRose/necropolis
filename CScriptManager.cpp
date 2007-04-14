@@ -19,7 +19,7 @@ namespace necropolis
 			const char *type = ( msg->type == asMSGTYPE_WARNING ) ? type = "WARN"
 												 : ( msg->type == asMSGTYPE_INFORMATION ) ? type = "INFO" : type = "ERR";
 
-			CLog::dbgOut ( "AngelScript", "MessageCallback", "%s (%d, %d) : %s : %s\n", msg->section, msg->row, msg->col, type, msg->message );
+			DBGOUT( "AngelScript", "MessageCallback", "%s (%d, %d) : %s : %s\n", msg->section, msg->row, msg->col, type, msg->message );
 		}
 
 		void CScriptManager::Initialize()
@@ -29,7 +29,7 @@ namespace necropolis
 
 			if ( engine == 0 )
 				{
-					CLog::dbgOut ( "Script Manager", "Constructor", "%s", "Failed to create script engine." );
+					DBGOUT( "Script Manager", "Constructor", "%s", "Failed to create script engine." );
 					return;
 				}
 
@@ -57,13 +57,13 @@ namespace necropolis
 			if ( engine->AddScriptSection ( module.c_str(), scriptname.c_str(),
 																			str.c_str(), str.length(), 0, false ) < 0 )
 				{
-					CLog::dbgOut ( "Script Manager", "CompileScript", "%s", "AddScriptSection() failed." );
+					DBGOUT( "Script Manager", "CompileScript", "%s", "AddScriptSection() failed." );
 					return -1;
 				}
 
 			if ( engine->Build ( scriptname.c_str() ) < 0 )
 				{
-					CLog::dbgOut ( "Script Manager", "CompileScript", "%s", "Build() failed." );
+					DBGOUT( "Script Manager", "CompileScript", "%s", "Build() failed." );
 					return -1;
 				}
 
@@ -88,13 +88,13 @@ namespace necropolis
 			if ( engine->AddScriptSection ( module.c_str(),	scriptname.c_str(),
 																			str.c_str(), str.length(), 0, false ) < 0 )
 				{
-					CLog::dbgOut ( "Script Manager", "CompileScript", "%s", "AddScriptSection() failed." );
+					DBGOUT( "Script Manager", "CompileScript", "%s", "AddScriptSection() failed." );
 					return -1;
 				}
 
 			if ( engine->Build ( scriptname.c_str() ) < 0 )
 				{
-					CLog::dbgOut ( "Script Manager", "CompileScript", "%s", "Build() failed." );
+					DBGOUT( "Script Manager", "CompileScript", "%s", "Build() failed." );
 					return -1;
 				}
 
@@ -147,14 +147,14 @@ namespace necropolis
 
 			if ( ctx == NULL )
 				{
-					CLog::dbgOut ( "Script Manager", "AddContext", "%s", "Failed to create context - \"%n\"", funcID );
+					DBGOUT( "Script Manager", "AddContext", "%s", "Failed to create context - \"%n\"", funcID );
 					return;
 				}
 
 			/// Prepare it to execute the function
 			if ( ctx->Prepare ( funcID ) < 0 )
 				{
-					CLog::dbgOut ( "Script Manager", "AddContext", "%s", "Failed to prepare the context - \"%n\"", funcID );
+					DBGOUT( "Script Manager", "AddContext", "%s", "Failed to prepare the context - \"%n\"", funcID );
 					return;
 				}
 

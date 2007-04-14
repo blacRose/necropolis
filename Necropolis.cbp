@@ -252,6 +252,7 @@
 		</Unit>
 		<Unit filename="main.cpp">
 			<Option virtualFolder="Game\" />
+			<Option compiler="gcc" use="1" buildCommand="/E" />
 		</Unit>
 		<Unit filename="main.h">
 			<Option virtualFolder="Game\" />
